@@ -1,4 +1,3 @@
-
 annotate_tables:
   - tablename: persons
     annotate:

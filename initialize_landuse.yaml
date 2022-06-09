@@ -1,5 +1,3 @@
-
-
 annotate_tables:
   - tablename: land_use
     annotate:
