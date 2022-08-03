@@ -112,7 +112,7 @@ CONSTANTS:
     TNC_shared_costPerMile: 0.0
     TNC_shared_costPerMinute: 0.0
     TNC_shared_costMinimum: 0.0
-    TNC_shared_IVTFactor: 0.75
+    TNC_shared_IVTFactor: 0.0
     TNC_shared_waitTime_mean: 
       1: 5.0
       2: 8.0
