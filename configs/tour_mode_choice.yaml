@@ -93,7 +93,7 @@ CONSTANTS:
       4: 0
       5: 0
     TNC_single_baseFare: 3.30
-    TNC_single_costPerMile: 21.995
+    TNC_single_costPerMile: 1.995
     TNC_single_costPerMinute: 0.36
     TNC_single_costMinimum: 10.8
     TNC_single_waitTime_mean: 
