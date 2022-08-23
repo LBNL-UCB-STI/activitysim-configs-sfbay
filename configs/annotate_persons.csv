@@ -5,6 +5,7 @@ age_16_p,age_16_p,persons.age >= 16
 adult,adult,persons.age >= 18
 male,male,persons.sex == 1
 female,female,persons.sex == 2
+wheelchair_user,wheelchair_user,person.in_wheelchair
 presence of non_worker other than self in household,has_non_worker,"other_than(persons.household_id, persons.ptype == constants.PTYPE_NONWORK)"
 presence of retiree other than self in household,has_retiree,"other_than(persons.household_id, persons.ptype == constants.PTYPE_RETIRED)"
 presence of preschooler other than self in household,has_preschool_kid,"other_than(persons.household_id, persons.ptype == constants.PTYPE_PRESCHOOL)"
