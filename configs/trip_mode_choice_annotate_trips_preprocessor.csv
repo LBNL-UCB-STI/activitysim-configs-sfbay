@@ -38,16 +38,19 @@ dest terminal time not counted at home,_dest_terminal_time,"np.where(inbound & l
 ,density_index,"np.where(df.outbound, reindex(land_use.density_index, df[DESTINATION]), reindex(land_use.density_index, df[ORIGIN]))"
 ,origin_density_index,"np.where(df.outbound, reindex(land_use.density_index, df[ORIGIN]), reindex(land_use.density_index, df[DESTINATION]))"
 # FIXME no transit subzones so all zones short walk to transit,,
-,_walk_transit_origin,True
-,_walk_transit_destination,True
+,_walk_transit_origin,TRUE
+,_walk_transit_destination,TRUE
 ,walk_transit_available,_walk_transit_origin & _walk_transit_destination
 ,drive_transit_available,"np.where(df.outbound, _walk_transit_destination, _walk_transit_origin) & (df.auto_ownership > 0)"
 ,origin_walk_time,shortWalk*60/walkSpeed
 ,destination_walk_time,shortWalk*60/walkSpeed
 # RIDEHAIL,, Could just define this in trip_mode_choice.csv but leaving this for now so that we can factor in rejected trips if needed
-,origTaxiWaitTime,"odt_skims['RH_SOLO_WAIT'] * (1.0 - odt_skims['RH_SOLO_REJECTIONPROB']) + TNC_missed_trip_penalty * odt_skims['RH_SOLO_REJECTIONPROB']"
-,origSingleTNCWaitTime,"odt_skims['RH_SOLO_WAIT'] * (1.0 - odt_skims['RH_SOLO_REJECTIONPROB']) + TNC_missed_trip_penalty * odt_skims['RH_SOLO_REJECTIONPROB']"
-,origSharedTNCWaitTime,"odt_skims['RH_POOLED_WAIT'] * (1.0 - odt_skims['RH_POOLED_REJECTIONPROB']) + TNC_missed_trip_penalty * odt_skims['RH_POOLED_REJECTIONPROB']"
+,origTaxiWaitTime,odt_skims['RH_SOLO_WAIT'] * (1.0 - odt_skims['RH_SOLO_REJECTIONPROB']) + TNC_missed_trip_penalty * odt_skims['RH_SOLO_REJECTIONPROB']
+,origSingleTNCWaitTime,odt_skims['RH_SOLO_WAIT'] * (1.0 - odt_skims['RH_SOLO_REJECTIONPROB']) + TNC_missed_trip_penalty * odt_skims['RH_SOLO_REJECTIONPROB']
+,origSharedTNCWaitTime,odt_skims['RH_POOLED_WAIT'] * (1.0 - odt_skims['RH_POOLED_REJECTIONPROB']) + TNC_missed_trip_penalty * odt_skims['RH_POOLED_REJECTIONPROB']
+,origTaxiWaitTime_wheelchair,"np.where(df.requires_wheelchair,odt_skims['RH_SOLO_ACCESSIBLE_WAIT'] * (1.0 - odt_skims['RH_SOLO_ACCESSIBLE_REJECTIONPROB']) + TNC_missed_trip_penalty * odt_skims['RH_SOLO_ACCESSIBLE_REJECTIONPROB'],odt_skims['RH_SOLO_WAIT'] * (1.0 - odt_skims['RH_SOLO_REJECTIONPROB']) + TNC_missed_trip_penalty * odt_skims['RH_SOLO_REJECTIONPROB'])"
+,origSingleTNCWaitTime_wheelchair,"np.where(df.requires_wheelchair,odt_skims['RH_SOLO_ACCESSIBLE_WAIT'] * (1.0 - odt_skims['RH_SOLO_ACCESSIBLE_REJECTIONPROB']) + TNC_missed_trip_penalty * odt_skims['RH_SOLO_ACCESSIBLE_REJECTIONPROB'],odt_skims['RH_SOLO_WAIT'] * (1.0 - odt_skims['RH_SOLO_REJECTIONPROB']) + TNC_missed_trip_penalty * odt_skims['RH_SOLO_REJECTIONPROB'])"
+,origSharedTNCWaitTime_wheelchair,"np.where(df.requires_wheelchair,odt_skims['RH_POOLED_ACCESSIBLE_WAIT'] * (1.0 - odt_skims['RH_POOLED_ACCESSIBLE_REJECTIONPROB']) + TNC_missed_trip_penalty * odt_skims['RH_POOLED_ACCESSIBLE_REJECTIONPROB'],odt_skims['RH_POOLED_WAIT'] * (1.0 - odt_skims['RH_POOLED_REJECTIONPROB']) + TNC_missed_trip_penalty * odt_skims['RH_POOLED_REJECTIONPROB'])"
 #,,
 ,sov_available,odt_skims['SOV_TIME']>0
 ,hov2_available,odt_skims['HOV2_TIME']>0
