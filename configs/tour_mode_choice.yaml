@@ -50,7 +50,6 @@ NESTS:
       - name: RIDEHAIL
         coefficient: coef_nest_RIDEHAIL
         alternatives:
-          - TAXI
           - name: TNC_SINGLE
             coefficient: coef_nest_RIDEHAIL_SINGLE
             alternatives:
