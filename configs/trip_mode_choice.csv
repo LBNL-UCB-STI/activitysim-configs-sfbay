@@ -382,7 +382,6 @@ Ride Hail tour mode ASC -- shared ride 2,@ride_hail_ASC_sr2 * (df.is_indiv & df.
 Ride Hail tour mode ASC -- shared ride 3+,@ride_hail_ASC_sr3p * (df.is_indiv & df.tour_mode_is_ride_hail),,,,,1,1,,,,,,,,,,,,,,,,,,
 Ride Hail tour mode ASC -- walk,@ride_hail_ASC_walk * (df.is_indiv & df.tour_mode_is_ride_hail),,,,,,,1,,,,,,,,,,,,,,,,,
 Ride Hail tour mode ASC -- walk to transit,@ride_hail_ASC_walk_transit * (df.is_indiv & df.tour_mode_is_ride_hail),,,,,,,,,1,1,1,1,1,,,,,,,,,,,
-Ride Hail tour mode ASC -- ride hail,@ride_hail_ASC_taxi * (df.is_indiv & df.i_tour_mode.isin(I_RIDE_HAIL_MODES)),,,,,,,,,,,,,,,,,,,,,,,,
 Ride Hail tour mode ASC -- ride hail,@ride_hail_ASC_tnc_single * (df.is_indiv & df.i_tour_mode.isin(I_RIDE_HAIL_MODES)),,,,,,,,,,,,,,,,,,,1,1,1,,,
 Ride Hail tour mode ASC -- ride hail,@ride_hail_ASC_tnc_shared * (df.is_indiv & df.i_tour_mode.isin(I_RIDE_HAIL_MODES)),,,,,,,,,,,,,,,,,,,,,,1,1,1
 #joint tour ASCs,,,,,,,,,,,,,,,,,,,,,,,,,
@@ -412,7 +411,6 @@ joint - Ride Hail tour mode ASC -- shared ride 2,@joint_ride_hail_ASC_sr2 * (df.
 joint - Ride Hail tour mode ASC -- shared ride 3+,@joint_ride_hail_ASC_sr3p * (df.is_joint & df.tour_mode_is_ride_hail),,,,,1,1,,,,,,,,,,,,,,,,,,
 joint - Ride Hail tour mode ASC -- walk,@joint_ride_hail_ASC_walk * (df.is_joint & df.tour_mode_is_ride_hail),,,,,,,1,,,,,,,,,,,,,,,,,
 joint - Ride Hail tour mode ASC -- walk to transit,@joint_ride_hail_ASC_walk_transit * (df.is_joint & df.tour_mode_is_ride_hail),,,,,,,,,1,1,1,1,1,,,,,,,,,,,
-joint - Ride Hail tour mode ASC -- ride hail,@joint_ride_hail_ASC_taxi * (df.is_joint & df.i_tour_mode.isin(I_RIDE_HAIL_MODES)),,,,,,,,,,,,,,,,,,,,,,,,
 joint - Ride Hail tour mode ASC -- ride hail,@joint_ride_hail_ASC_tnc_single * (df.is_joint & df.i_tour_mode.isin(I_RIDE_HAIL_MODES)),,,,,,,,,,,,,,,,,,,1,1,1,,,
 joint - Ride Hail tour mode ASC -- ride hail,@joint_ride_hail_ASC_tnc_shared * (df.is_joint & df.i_tour_mode.isin(I_RIDE_HAIL_MODES)),,,,,,,,,,,,,,,,,,,,,,1,1,1
 #,,,,,,,,,,,,,,,,,,,,,,,,,
