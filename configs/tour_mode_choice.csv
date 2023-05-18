@@ -264,7 +264,7 @@ util_SINGLE_UBER_In_vehicle_time,TNC Single UBER - In-vehicle time,@(odt_skims['
 util_SINGLE_UBER_Wait_time,TNC Single UBER - Wait time,@1.5 * df.totalWaitSingleUBER,,,,,,,,,,,,,,,,,,,,coef_ivt,,,,,
 util_SINGLE_UBER_Tolls,TNC Single UBER - Tolls,@ivt_cost_multiplier * df.ivot * (odt_skims['HOV2TOLL_VTOLL'] + dot_skims['HOV2TOLL_VTOLL']),,,,,,,,,,,,,,,,,,,,coef_ivt,,,,,
 util_SINGLE_UBER_Bridge_toll,TNC Single UBER - Bridge toll,@ivt_cost_multiplier * df.ivot * (odt_skims['HOV2TOLL_BTOLL'] + odr_skims['HOV2TOLL_BTOLL'] + dot_skims['HOV2TOLL_BTOLL'] + dor_skims['HOV2TOLL_BTOLL']),,,,,,,,,,,,,,,,,,,,coef_ivt,,,,,
-util_SINGLE_UBER_Cost,TNC Single UBER - Cost,"@ivt_cost_multiplier * df.ivot * np.maximum(TNC_single_uber_baseFare * 2 + (odt_skims['HOV2TOLL_DIST'] + dot_skims['HOV2TOLL_DIST']) * TNC_single_uber_costPerMile + (odt_skims['HOV2TOLL_TIME'] + dot_skims['HOV2TOLL_TIME']) * TNC_single_uber_costPerMinute, TNC_TNC_single_uber_costMinimum) * 100",,,,,,,,,,,,,,,,,,,,coef_ivt,,,,,
+util_SINGLE_UBER_Cost,TNC Single UBER - Cost,"@ivt_cost_multiplier * df.ivot * np.maximum(TNC_single_uber_baseFare * 2 + (odt_skims['HOV2TOLL_DIST'] + dot_skims['HOV2TOLL_DIST']) * TNC_single_uber_costPerMile + (odt_skims['HOV2TOLL_TIME'] + dot_skims['HOV2TOLL_TIME']) * TNC_single_uber_costPerMinute, TNC_single_uber_costMinimum) * 100",,,,,,,,,,,,,,,,,,,,coef_ivt,,,,,
 #,TNC Single LYFT,,,,,,,,,,,,,,,,,,,,,,,,,,
 util_SINGLE_LYFT_In_vehicle_time,TNC Single LYFT - In-vehicle time,@(odt_skims['HOV2TOLL_TIME'] + dot_skims['HOV2TOLL_TIME']),,,,,,,,,,,,,,,,,,,,,coef_ivt,,,,
 util_SINGLE_LYFT_Wait_time,TNC Single LYFT - Wait time,@1.5 * df.totalWaitSingleLYFT,,,,,,,,,,,,,,,,,,,,,coef_ivt,,,,
