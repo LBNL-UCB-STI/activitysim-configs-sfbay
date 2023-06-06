@@ -269,7 +269,7 @@ util_SINGLE_CRUISE_In_vehicle_time,TNC Single CRUISE - In-vehicle time,@(odt_ski
 util_SINGLE_CRUISE_Wait_time,TNC Single CRUISE - Wait time,@1.5 * df.totalWaitSingleLYFT,,,,,,,,,,,,,,,,,,,,,coef_ivt,,,
 util_SINGLE_CRUISE_Tolls,TNC Single CRUISE - Tolls,@ivt_cost_multiplier * df.ivot * (odt_skims['HOV2TOLL_VTOLL'] + dot_skims['HOV2TOLL_VTOLL']),,,,,,,,,,,,,,,,,,,,,coef_ivt,,,
 util_SINGLE_CRUISE_Bridge_toll,TNC Single CRUISE - Bridge toll,@ivt_cost_multiplier * df.ivot * (odt_skims['HOV2TOLL_BTOLL'] + odr_skims['HOV2TOLL_BTOLL'] + dot_skims['HOV2TOLL_BTOLL'] + dor_skims['HOV2TOLL_BTOLL']),,,,,,,,,,,,,,,,,,,,,coef_ivt,,,
-util_SINGLE_CRUISE_Cost,TNC Single CRUISE - Cost,"@ivt_cost_multiplier * df.ivot * np.maximum(TNC_single_cruise_baseFare * 2 + (odt_skims['HOV2TOLL_DIST'] + dot_skims['HOV2TOLL_DIST']) * TNC_single_cruise_costPerMile + (odt_skims['HOV2TOLL_TIME'] + dot_skims['HOV2TOLL_TIME']) * TNC_single_cruise_costPerMinute, TNC_single_cruise_costMinimum) * 100",,,,,,,,,,,,,,,,,,,,,coef_ivt,,,
+util_SINGLE_CRUISE_Cost,TNC Single CRUISE - Cost,"SAV_ASC +  @ivt_cost_multiplier * df.ivot * np.maximum(TNC_single_cruise_baseFare * 2 + (odt_skims['HOV2TOLL_DIST'] + dot_skims['HOV2TOLL_DIST']) * TNC_single_cruise_costPerMile + (odt_skims['HOV2TOLL_TIME'] + dot_skims['HOV2TOLL_TIME']) * TNC_single_cruise_costPerMinute, TNC_single_cruise_costMinimum) * 100",,,,,,,,,,,,,,,,,,,,,coef_ivt,,,
 #,TNC Shared UBER,,,,,,,,,,,,,,,,,,,,,,,,,
 util_SHARED_UBER_In_vehicle_time,TNC Shared UBER - In-vehicle time,@(odt_skims['HOV2TOLL_TIME'] + dot_skims['HOV2TOLL_TIME']) * TNC_shared_uber_IVTFactor,,,,,,,,,,,,,,,,,,,,,,coef_ivt,,
 util_SHARED_UBER_Wait_time,TNC Shared UBER - Wait time,@1.5 * df.totalWaitSharedUBER,,,,,,,,,,,,,,,,,,,,,,coef_ivt,,
@@ -287,7 +287,7 @@ util_SHARED_CRUISE_In_vehicle_time,TNC Shared CRUISE - In-vehicle time,@(odt_ski
 util_SHARED_CRUISE_Wait_time,TNC Shared CRUISE - Wait time,@1.5 * df.totalWaitSharedCRUISE,,,,,,,,,,,,,,,,,,,,,,,,coef_ivt
 util_SHARED_CRUISE_Tolls,TNC Shared CRUISE - Tolls,@ivt_cost_multiplier * df.ivot * (odt_skims['HOV2TOLL_VTOLL'] + dot_skims['HOV2TOLL_VTOLL']),,,,,,,,,,,,,,,,,,,,,,,,coef_ivt
 util_SHARED_CRUISE_Bridge_toll,TNC Shared CRUISE - Bridge toll,@ivt_cost_multiplier * df.ivot * (odt_skims['HOV2TOLL_BTOLL'] + odr_skims['HOV2TOLL_BTOLL'] + dot_skims['HOV2TOLL_BTOLL'] + dor_skims['HOV2TOLL_BTOLL']),,,,,,,,,,,,,,,,,,,,,,,,coef_ivt
-util_SHARED_CRUISE_Cost,TNC Shared CRUISE - Cost,"@ivt_cost_multiplier * df.ivot * np.maximum(TNC_shared_cruise_baseFare * 2 + (odt_skims['HOV2TOLL_DIST'] + dot_skims['HOV2TOLL_DIST']) * TNC_shared_cruise_costPerMile + (odt_skims['HOV2TOLL_TIME'] + dot_skims['HOV2TOLL_TIME']) * TNC_shared_cruise_costPerMinute, TNC_shared_cruise_costMinimum) * 100",,,,,,,,,,,,,,,,,,,,,,,,coef_ivt
+util_SHARED_CRUISE_Cost,TNC Shared CRUISE - Cost,"SAV_ASC + @ivt_cost_multiplier * df.ivot * np.maximum(TNC_shared_cruise_baseFare * 2 + (odt_skims['HOV2TOLL_DIST'] + dot_skims['HOV2TOLL_DIST']) * TNC_shared_cruise_costPerMile + (odt_skims['HOV2TOLL_TIME'] + dot_skims['HOV2TOLL_TIME']) * TNC_shared_cruise_costPerMinute, TNC_shared_cruise_costMinimum) * 100",,,,,,,,,,,,,,,,,,,,,,,,coef_ivt
 #,indiv tour ASCs,,,,,,,,,,,,,,,,,,,,,,,,,
 util_Walk_ASC_Zero_auto,Walk ASC - Zero auto,@(df.is_indiv & (df.auto_ownership == 0)),,,,,,,walk_ASC_no_auto,,,,,,,,,,,,,,,,,
 util_Walk_ASC_Auto_deficient,Walk ASC - Auto deficient,@(df.is_indiv & (df.auto_ownership < df.num_workers) & (df.auto_ownership > 0)),,,,,,,walk_ASC_auto_deficient,,,,,,,,,,,,,,,,,
