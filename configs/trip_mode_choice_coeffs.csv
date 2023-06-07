@@ -27,7 +27,7 @@ c_topology_trn,2.20 * c_ivt,2.20 * c_ivt,2.20 * c_ivt,2.20 * c_ivt,2.20 * c_ivt,
 c_density_index,c_ivt / -5.0,c_ivt / -5.0,c_ivt / -5.0,c_ivt / -5.0,c_ivt / -5.0,c_ivt / -5.0,c_ivt / -5.0,c_ivt / -5.0,c_ivt / -5.0,c_ivt / -5.0
 c_origin_density_index,c_density_index * 3,c_density_index * 3,c_density_index * 3,c_density_index * 3,c_density_index * 3,c_density_index * 3,c_density_index * 3,c_density_index * 3,c_density_index * 3,c_density_index * 3
 c_origin_density_index_max,c_ivt * -15,c_ivt * -15,c_ivt * -15,c_ivt * -15,c_ivt * -15,c_ivt * -15,c_ivt * -15,c_ivt * -15,c_ivt * -15,c_ivt * -15
-origin_density_applied,FALSE,FALSE,FALSE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE
+origin_density_applied,False, False, False,True, True, True, True, True, True, True
 c_age1619_da,0,0,0,0,0,0,0,0,0,0
 c_age010_trn,0,0,0,0,0,0,0,0,0,0
 c_age16p_sr,0,0,0,0,0,0,0,0,0,0
