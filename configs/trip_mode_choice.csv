@@ -322,7 +322,7 @@ TNC Single CRUISE - Wait time,@c_ivt * 1.5 * df.origSingleTNCCruiseWaitTime,,,,,
 TNC Single CRUISE - Tolls,@df.c_cost * odt_skims['HOV2TOLL_VTOLL'],,,,,,,,,,,,,,,,,,,,,1,,,
 TNC Single CRUISE - Bridge toll,@df.c_cost * (odt_skims['HOV2TOLL_BTOLL'] + dot_skims['HOV2TOLL_BTOLL']),,,,,,,,,,,,,,,,,,,,,1,,,
 TNC Single CRUISE - Cost,"@df.c_cost * np.maximum(TNC_single_cruise_baseFare + odt_skims['HOV2TOLL_DIST'] * TNC_single_cruise_costPerMile + odt_skims['HOV2TOLL_TIME'] * TNC_single_cruise_costPerMinute, TNC_single_cruise_costMinimum) * 100",,,,,,,,,,,,,,,,,,,,,1,,,
-TNC Single CRUISE - SAV ASC,@SAV_ASC,,,,,,,,,,,,,,,,,,,,,,1,,,
+TNC Single CRUISE - SAV ASC,@SAV_ASC,,,,,,,,,,,,,,,,,,,,,1,,,
 #TNC Shared UBER,,,,,,,,,,,,,,,,,,,,,,,,,
 TNC Shared UBER - In-vehicle time,@c_ivt * odt_skims['HOV2TOLL_TIME'] * TNC_shared_uber_IVTFactor,,,,,,,,,,,,,,,,,,,,,,1,,
 TNC Shared UBER - Wait time,@c_ivt  * 1.5 * df.origSharedTNCUberWaitTime,,,,,,,,,,,,,,,,,,,,,,1,,
@@ -341,7 +341,7 @@ TNC Shared CRUISE - Wait time,@c_ivt  * 1.5 * df.origSharedTNCCruiseWaitTime,,,,
 TNC Shared CRUISE - Tolls,@df.c_cost * odt_skims['HOV2TOLL_VTOLL'],,,,,,,,,,,,,,,,,,,,,,,,1
 TNC Shared CRUISE - Bridge toll,@df.c_cost * (odt_skims['HOV2TOLL_BTOLL'] + dot_skims['HOV2TOLL_BTOLL']),,,,,,,,,,,,,,,,,,,,,,,,1
 TNC Shared CRUISE - Cost,"@df.c_cost * np.maximum(TNC_shared_cruise_baseFare + odt_skims['HOV2TOLL_DIST'] * TNC_shared_cruise_costPerMile + odt_skims['HOV2TOLL_TIME']* TNC_shared_cruise_costPerMinute, TNC_shared_cruise_costMinimum) * 100",,,,,,,,,,,,,,,,,,,,,,,,1
-TNC Shared CRUISE - SAV ASC,@SAV_ASC,,,,,,,,,,,,,,,,,,,,,,,,,1
+TNC Shared CRUISE - SAV ASC,@SAV_ASC,,,,,,,,,,,,,,,,,,,,,,,,1
 #,,,,,,,,,,,,,,,,,,,,,,,,,
 Auto tour mode availability,tour_mode_is_auto,,,,,,,,-999,-999,-999,-999,-999,-999,-999,-999,-999,-999,-999,,,,,,
 Walk tour mode availability,tour_mode_is_walk,-999,-999,-999,-999,-999,-999,,-999,-999,-999,-999,-999,-999,-999,-999,-999,-999,-999,,,,,,
