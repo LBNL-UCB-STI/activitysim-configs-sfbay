@@ -22,7 +22,7 @@ util_DRIVEALONEPAY_Terminal_time,DRIVEALONEPAY - Terminal time,@2 * walktimeshor
 util_DRIVEALONEPAY_Operating_cost,DRIVEALONEPAY - Operating cost,@ivt_cost_multiplier * df.ivot * costPerMile * (odt_skims['SOVTOLL_DIST'] + dot_skims['SOVTOLL_DIST']),,coef_ivt,,,,,,,,,,,,,,,,,,,
 util_DRIVEALONEPAY_Parking_cost,DRIVEALONEPAY - Parking cost,@ivt_cost_multiplier * df.ivot * df.daily_parking_cost,,coef_ivt,,,,,,,,,,,,,,,,,,,
 util_DRIVEALONEPAY_Bridge_toll,DRIVEALONEPAY - Bridge toll,@ivt_cost_multiplier * df.ivot * (odt_skims['SOVTOLL_BTOLL'] + dot_skims['SOVTOLL_BTOLL']),,coef_ivt,,,,,,,,,,,,,,,,,,,
-util_DRIVEALONEPAY_Value_toll,DRIVEALONEPAY - Value toll,@ivt_cost_multiplier * df.ivot * (odt_skims['SOVTOLL_VTOLL'] + dot_skims['SOVTOLL_VTOLL']),,coef_ivt,,,,,,,,,,,,,,,,,,,
+util_DRIVEALONEPAY_Value_toll,DRIVEALONEPAY - Value toll,@ivt_cost_multiplier * df.ivot * (odt_skims['SOVTOLL_VTOLL'] + dot_skims['SOVTOLL_VTOLL']) + cordon_toll  * df.is_dest_cordon - income_low_100_discount * df.is_income_lower_100,,coef_ivt,,,,,,,,,,,,,,,,,,,
 util_DRIVEALONEPAY_Person_is_between_16_and_19_years_old,DRIVEALONEPAY - Person is between 16 and 19 years old,@(df.age >= 16) & (df.age <= 19),,coef_age1619_da_multiplier,,,,,,,,,,,,,,,,,,,
 #,Shared ride 2,,,,,,,,,,,,,,,,,,,,,,
 util_SHARED2FREE_Unavailable,SHARED2FREE - Unavailable,hov2_available == False,,,-999,,,,,,,,,,,,,,,,,,
