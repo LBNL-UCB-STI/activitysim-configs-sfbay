@@ -77,5 +77,10 @@ dest terminal time not counted at home,_dest_terminal_time,"np.where(inbound & l
 #,od_dist_walk,od_skims['DISTWALK']
 #,do_dist_walk,od_skims.reverse('DISTWALK')
 #,max_dist_walk,od_skims.max('DISTWALK')
-#,dist_bike,od_skims['DISTBIKE']
+#,dist_bike,od_skims['DISTBIKE']S
 #,dist_only,od_skims['DIST']
+,is_dest_cordon, df[DESTINATION].isin(LIST_SMALL_CORDON_TAZS_SF)
+,is_income_lower_100, df.income_in_thousands < 100
+,is_income_higher_100, df.income_in_thousands >= 100
+
+
