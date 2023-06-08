@@ -73,5 +73,5 @@ destination in central business district,destination_in_cbd,"(reindex(land_use.a
 #,,FIXME diagnostic
 #,sov_dist_rt,(odt_skims['SOV_DIST'] + dot_skims['SOV_DIST'])
 ,is_dest_cordon, df[dest_col_name].isin(LIST_SMALL_CORDON_TAZS_SF)
-,is_income_lower_100, df.income_in_thousands < 100
-,is_income_higher_100, df.income_in_thousands >= 100
+,is_income_lower_100,df.income_in_thousands < 100
+,is_income_higher_100,df.income_in_thousands >= 100

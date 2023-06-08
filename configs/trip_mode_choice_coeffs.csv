@@ -115,5 +115,5 @@ joint_ride_hail_ASC_tnc_shared,0,0,0,0,0,0,0,0,0,0
 #,,,,,,,,,,
 c_walk_express_penalty,10.00 * c_ivt,10.00 * c_ivt,10.00 * c_ivt,10.00 * c_ivt,10.00 * c_ivt,10.00 * c_ivt,10.00 * c_ivt,10.00 * c_ivt,10.00 * c_ivt,10.00 * c_ivt
 adjust_tnc_shared,30 * c_ivt,30 * c_ivt,30 * c_ivt,30 * c_ivt,30 * c_ivt,30 * c_ivt,30 * c_ivt,30 * c_ivt,30 * c_ivt,30 * c_ivt
-cordon_toll ,650 * c_ivt, 650 * c_ivt, 650 * c_ivt, 650 * c_ivt, 650 * c_ivt, 650 * c_ivt, 650 * c_ivt, 650 * c_ivt, 650 * c_ivt, 650 * c_ivt
-income_low_100_discount ,300 * c_ivt, 300 * c_ivt, 300 * c_ivt, 300 * c_ivt, 300 * c_ivt, 300 * c_ivt, 300 * c_ivt, 300 * c_ivt, 300 * c_ivt, 300 * c_ivt
+cordon_toll,650 * c_ivt,650 * c_ivt,650 * c_ivt,650 * c_ivt,650 * c_ivt,650 * c_ivt,650 * c_ivt,650 * c_ivt,650 * c_ivt,650 * c_ivt
+income_low_100_discount,300 * c_ivt,300 * c_ivt,300 * c_ivt,300 * c_ivt,300 * c_ivt,300 * c_ivt,300 * c_ivt,300 * c_ivt,300 * c_ivt,300 * c_ivt
