@@ -307,3 +307,4 @@ drive_transit_CBD_ASC_work,1.1,F
 drive_transit_CBD_ASC_atwork,0.564,F
 incentive_walk,-100,T
 incentive_bike,-100,T
+incentive_walk_time, -5, T
