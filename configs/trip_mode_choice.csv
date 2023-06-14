@@ -322,7 +322,7 @@ TNC Single - Cost,"@df.c_cost * np.maximum(TNC_single_baseFare + odt_skims['HOV2
 #TNC Shared,,,,,,,,,,,,,,,,,,,,,,
 TNC Shared - In-vehicle time,@c_ivt * odt_skims['HOV2TOLL_TIME'] * TNC_shared_IVTFactor,,,,,,,,,,,,,,,,,,,,,1
 TNC Shared - Wait time,@c_ivt  * 1.5 * df.origSharedTNCWaitTime,,,,,,,,,,,,,,,,,,,,,1
-TNC Shared - Tolls,@df.c_cost * (odt_skims['HOV2TOLL_VTOLL'] + df.is_dest_orig_cordon * df.is_peak * (cordon_toll  - discount_very_low_income * df.is_income_very_low - discount_low_income * df.is_income_low - discount_moderate_income * df.is_income_moderate - discount_medium_income * df.is_income_medium - discount_high_income * df.is_income_high)),,,,,,,,,,,,,,,,,,,,,1
+TNC Shared - Tolls,@df.c_cost * (odt_skims['HOV2TOLL_VTOLL'] + df.is_dest_orig_cordon * df.is_peak * (cordon_toll  - discount_very_low_income * df.is_income_very_low - discount_low_income * df.is_income_low - discount_moderate_income * df.is_income_moderate - discount_medium_income * df.is_income_medium - discount_high_income * df.is_income_high)) / 2,,,,,,,,,,,,,,,,,,,,,1
 TNC Shared - Bridge toll,@df.c_cost * (odt_skims['HOV2TOLL_BTOLL'] + dot_skims['HOV2TOLL_BTOLL']),,,,,,,,,,,,,,,,,,,,,1
 TNC Shared - Cost,"@df.c_cost * np.maximum(TNC_shared_baseFare + odt_skims['HOV2TOLL_DIST'] * TNC_shared_costPerMile + odt_skims['HOV2TOLL_TIME']* TNC_shared_costPerMinute, TNC_shared_costMinimum) * 100",,,,,,,,,,,,,,,,,,,,,1
 #,,,,,,,,,,,,,,,,,,,,,,
