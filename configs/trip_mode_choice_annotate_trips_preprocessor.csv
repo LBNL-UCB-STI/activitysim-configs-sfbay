@@ -86,6 +86,7 @@ dest terminal time not counted at home,_dest_terminal_time,"np.where(inbound & l
 ,is_income_moderate, (((df.income_in_thousands>0)  & (df.income_in_thousands<=100) & (df.hhsize == 1)) | ((df.income_in_thousands>100) & (df.income_in_thousands<=114) & (df.hhsize == 2)) | ((df.income_in_thousands>114) & (df.income_in_thousands<=128) & (df.hhsize == 3)) | ((df.income_in_thousands>128) & (df.income_in_thousands<=142) & (df.hhsize == 4)))
 ,is_income_medium,   (((df.income_in_thousands>0)  & (df.income_in_thousands<=116) & (df.hhsize == 1)) | ((df.income_in_thousands>116) & (df.income_in_thousands<=133) & (df.hhsize == 2)) | ((df.income_in_thousands>133) & (df.income_in_thousands<=149) & (df.hhsize == 3)) | ((df.income_in_thousands>149) & (df.income_in_thousands<=166) & (df.hhsize == 4)))
 ,is_income_high,     (((df.income_in_thousands>116)                                & (df.hhsize == 1)) | ((df.income_in_thousands>133)                                 & (df.hhsize == 2)) | ((df.income_in_thousands>149)                                 & (df.hhsize == 3)) | ((df.income_in_thousands>166)                                 & (df.hhsize == 4)))
-,is_peak, (((df.start>=6)  & (df.start<=9) & (skim_time_period_label(df.start) == 'AM')) | ((df.start>=3)  & (df.start<=6)  & (skim_time_period_label(df.start) == 'PM')))
+,is_peak, (((df.depart>=6)  & (df.depart<=9)) | ((df.depart>=15)  & (df.depart<=18) ))
+
 
 
