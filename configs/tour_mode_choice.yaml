@@ -60,8 +60,6 @@ COEFFICIENT_TEMPLATE: tour_mode_choice_coeffs_template.csv
 
 CONSTANTS:
     #valueOfTime: 8.00
-    start_column: start
-    end_column: end
     costPerMile: 18.29
     costShareSr2: 1.75
     costShareSr3: 2.50
