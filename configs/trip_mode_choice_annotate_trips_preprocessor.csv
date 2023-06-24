@@ -1,5 +1,6 @@
 Description,Target,Expression
 ,is_joint,(df.number_of_participants > 1)
+local,_DF_IS_DEPART,'depart' in df.columns
 ,is_indiv,(df.number_of_participants == 1)
 ,is_atwork_subtour,~df.parent_tour_id.isnull()
 ,c_cost,(0.60 * c_ivt) / df.value_of_time
@@ -86,7 +87,7 @@ dest terminal time not counted at home,_dest_terminal_time,"np.where(inbound & l
 ,is_income_moderate, (((df.income_in_thousands>0)  & (df.income_in_thousands<=100) & (df.hhsize == 1)) | ((df.income_in_thousands>100) & (df.income_in_thousands<=114) & (df.hhsize == 2)) | ((df.income_in_thousands>114) & (df.income_in_thousands<=128) & (df.hhsize == 3)) | ((df.income_in_thousands>128) & (df.income_in_thousands<=142) & (df.hhsize == 4)))
 ,is_income_medium,   (((df.income_in_thousands>0)  & (df.income_in_thousands<=116) & (df.hhsize == 1)) | ((df.income_in_thousands>116) & (df.income_in_thousands<=133) & (df.hhsize == 2)) | ((df.income_in_thousands>133) & (df.income_in_thousands<=149) & (df.hhsize == 3)) | ((df.income_in_thousands>149) & (df.income_in_thousands<=166) & (df.hhsize == 4)))
 ,is_income_high,     (((df.income_in_thousands>116)                                & (df.hhsize == 1)) | ((df.income_in_thousands>133)                                 & (df.hhsize == 2)) | ((df.income_in_thousands>149)                                 & (df.hhsize == 3)) | ((df.income_in_thousands>166)                                 & (df.hhsize == 4)))
-,is_peak, (((df.depart>=6)  & (df.depart<9)) | ((df.depart>=15)  & (df.depart<=18) ))
+,is_peak, (((df.depart>=6)  & (df.depart<9)) | ((df.depart>=15)  & (df.depart<=18) ))   if _DF_IS_DEPART else 1
 
 
 
