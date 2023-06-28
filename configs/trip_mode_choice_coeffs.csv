@@ -115,6 +115,6 @@ joint_ride_hail_ASC_tnc_shared,0,0,0,0,0,0,0,0,0,0
 #,,,,,,,,,,
 c_walk_express_penalty,10.00 * c_ivt,10.00 * c_ivt,10.00 * c_ivt,10.00 * c_ivt,10.00 * c_ivt,10.00 * c_ivt,10.00 * c_ivt,10.00 * c_ivt,10.00 * c_ivt,10.00 * c_ivt
 adjust_tnc_shared,30 * c_ivt,30 * c_ivt,30 * c_ivt,30 * c_ivt,30 * c_ivt,30 * c_ivt,30 * c_ivt,30 * c_ivt,30 * c_ivt,30 * c_ivt
-incentive_walk,-1000,-1000,-1000,-1000,-1000,-1000,-1000,-1000,-1000,-1000
-incentive_walk_time,-50,-50,-50,-50,-50,-50,-50,-50,-50,-50
-incentive_bike,-1000,-1000,-1000,-1000,-1000,-1000,-1000,-1000,-1000,-1000
+incentive_walk,-200,-200,-200,-200,-200,-200,-200,-200,-200,-200
+incentive_walk_time,-10,-10,-10,-10,-10,-10,-10,-10,-10,-10
+incentive_bike,-200,-200,-200,-200,-200,-200,-200,-200,-200,-200
