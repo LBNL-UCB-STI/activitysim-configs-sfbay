@@ -202,8 +202,8 @@ CONSTANTS:
       5: 0
     min_waitTime: 0
     max_waitTime: 50
-    TNC_missed_trip_penalty: 50
-    SAV_ASC: -10.0
+    TNC_missed_trip_penalty: 75
+    SAV_ASC: -2.0
 
     ivt_cost_multiplier: 0.6
     ivt_lrt_multiplier: 0.9

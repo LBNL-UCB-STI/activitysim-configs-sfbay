@@ -171,7 +171,7 @@ CONSTANTS:
   TNC_single_cruise_baseFare: 3.82
   TNC_single_cruise_costPerMile: 0.85
   TNC_single_cruise_costPerMinute: 0.22
-  TNC_single_cruise_costMinimum: 7.20
+  TNC_single_cruise_costMinimum: 5.70
   TNC_single_cruise_waitTime_mean:
     1: 3.0
     2: 6.3
@@ -237,8 +237,8 @@ CONSTANTS:
     5: 0
   min_waitTime: 0
   max_waitTime: 50
-  TNC_missed_trip_penalty: 50
-  SAV_ASC: -10.0
+  TNC_missed_trip_penalty: 75
+  SAV_ASC: -2.0
 
 # so far, we can use the same spec as for non-joint tours
 preprocessor:
