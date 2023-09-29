@@ -52,7 +52,7 @@ num_processes: 94
 stagger: 0
 
 # tracing
-trace_hh_id: 3825961 
+trace_hh_id: 
 trace_od:
 
 # to resume after last successful checkpoint, specify resume_after: _
