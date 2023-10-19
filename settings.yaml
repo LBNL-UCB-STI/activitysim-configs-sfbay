@@ -66,7 +66,7 @@ models:
   ### mp_households step
   # - school_location
   # - workplace_location
-  # - auto_ownership_simulate
+  - auto_ownership_simulate
   - free_parking
   - telework_job_sector
   - telework_option
@@ -104,7 +104,7 @@ multiprocess_steps:
   - name: mp_initialize
     begin: initialize_landuse
   - name: mp_households
-    begin: free_parking
+    begin: auto_ownership_simulate
     slice:
       tables:
         - households
