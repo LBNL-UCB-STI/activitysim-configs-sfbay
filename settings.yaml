@@ -68,6 +68,9 @@ models:
   - workplace_location
   - auto_ownership_simulate
   - free_parking
+  - telework_job_sector
+  - telework_option
+  - telework
   - cdap_simulate
   - mandatory_tour_frequency
   - mandatory_tour_scheduling
@@ -93,6 +96,8 @@ models:
   ### mp_summarize step
   - generate_beam_plans
   - write_data_dictionary
+  - track_skim_usage
+  - write_trip_matrices
   - write_tables
 
 multiprocess_steps:
@@ -107,11 +112,13 @@ multiprocess_steps:
   - name: mp_summarize
     begin: generate_beam_plans
 
+
 output_tables:
   action: include
   prefix: final_
   tables:
     - checkpoints
+    - accessibility
     - land_use
     - households
     - persons
