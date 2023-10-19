@@ -64,9 +64,9 @@ models:
   - compute_accessibility
   - initialize_households
   ### mp_households step
-  - school_location
-  - workplace_location
-  - auto_ownership_simulate
+  # - school_location
+  # - workplace_location
+  # - auto_ownership_simulate
   - free_parking
   - telework_job_sector
   - telework_option
@@ -104,7 +104,7 @@ multiprocess_steps:
   - name: mp_initialize
     begin: initialize_landuse
   - name: mp_households
-    begin: school_location
+    begin: free_parking
     slice:
       tables:
         - households
