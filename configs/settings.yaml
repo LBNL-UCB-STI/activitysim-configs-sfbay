@@ -71,10 +71,13 @@ models:
   - initialize_landuse
   - compute_accessibility
   - initialize_households
-  # - school_location
+  - school_location
   # - workplace_location
   - auto_ownership_simulate
   - free_parking
+  - telework_job_sector
+  - telework_option
+  - telework
   - cdap_simulate
   - mandatory_tour_frequency
   - mandatory_tour_scheduling
