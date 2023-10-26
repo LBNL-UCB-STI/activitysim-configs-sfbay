@@ -64,7 +64,7 @@ models:
   - compute_accessibility
   - initialize_households
   ### mp_households step
-  # - school_location
+  - school_location
   # - workplace_location
   - auto_ownership_simulate
   - free_parking
