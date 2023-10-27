@@ -45,7 +45,6 @@ dest terminal time not counted at home,_dest_terminal_time,"np.where(inbound & l
 ,origin_walk_time,shortWalk*60/walkSpeed
 ,destination_walk_time,shortWalk*60/walkSpeed
 # RIDEHAIL,, Could just define this in trip_mode_choice.csv but leaving this for now so that we can factor in rejected trips if needed
-,origSingleTNCWaitTime,odt_skims['RH_SOLO_WAIT'] * (1.0 - odt_skims['RH_SOLO_REJECTIONPROB']) + TNC_missed_trip_penalty * odt_skims['RH_SOLO_REJECTIONPROB']
 ,origSingleTNCUberWaitTime,odt_skims['TNC_SINGLE_UBER_WAIT'] * (1.0 - odt_skims['TNC_SINGLE_UBER_REJECTIONPROB']) + TNC_missed_trip_penalty * odt_skims['TNC_SINGLE_UBER_REJECTIONPROB']
 ,origSingleTNCLyftWaitTime,odt_skims['TNC_SINGLE_LYFT_WAIT'] * (1.0 - odt_skims['TNC_SINGLE_LYFT_REJECTIONPROB']) + TNC_missed_trip_penalty * odt_skims['TNC_SINGLE_LYFT_REJECTIONPROB']
 ,origSingleTNCCruiseWaitTime,odt_skims['TNC_SINGLE_CRUISE_WAIT'] * (1.0 - odt_skims['TNC_SINGLE_CRUISE_REJECTIONPROB']) + TNC_missed_trip_penalty * odt_skims['TNC_SINGLE_CRUISE_REJECTIONPROB']
