@@ -188,7 +188,7 @@ CONSTANTS:
   TNC_shared_uber_costPerMile: 0.75
   TNC_shared_uber_costPerMinute: 0.08
   TNC_shared_uber_costMinimum: 3.00
-  TNC_shared_uber_IVTFactor: 1.5
+  TNC_shared_uber_IVTFactor: 1.0
   TNC_shared_uber_waitTime_mean:
     1: 5.0
     2: 8.0
