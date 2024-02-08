@@ -1,6 +1,7 @@
 Description,Target,Expression
 #,,
 local,_DF_IS_TOUR,'tour_type' in df.columns
+local,_DF_IS_START,'start' in df.columns
 ,number_of_participants,df.number_of_participants if _DF_IS_TOUR else 1
 ,is_joint,(df.tour_category=='joint') if _DF_IS_TOUR else False
 #,,
@@ -72,3 +73,12 @@ local,_DF_IS_TOUR,'tour_type' in df.columns
 destination in central business district,destination_in_cbd,"(reindex(land_use.area_type, df[dest_col_name]) < setting('cbd_threshold')) * 1"
 #,,FIXME diagnostic
 #,sov_dist_rt,(odt_skims['SOV_DIST'] + dot_skims['SOV_DIST'])
+,is_dest_cordon, (df[dest_col_name].isin(LIST_SMALL_CORDON_TAZS_SF)) & (~df[orig_col_name].isin(LIST_SMALL_CORDON_TAZS_SF))
+,is_dest_orig_cordon, ((df[orig_col_name].isin(LIST_SMALL_CORDON_TAZS_SF)) | (df[dest_col_name].isin(LIST_SMALL_CORDON_TAZS_SF)))
+,is_income_very_low, (((df.income_in_thousands>0)  & (df.income_in_thousands<=46)  & (df.hhsize == 1)) | ((df.income_in_thousands>46)  & (df.income_in_thousands<=53)  & (df.hhsize == 2)) | ((df.income_in_thousands>53)  & (df.income_in_thousands<=59)  & (df.hhsize == 3)) | ((df.income_in_thousands>59)  & (df.income_in_thousands<=65)  & (df.hhsize == 4)))
+,is_income_low,      (((df.income_in_thousands>0)  & (df.income_in_thousands<=66)  & (df.hhsize == 1)) | ((df.income_in_thousands>66)  & (df.income_in_thousands<=76)  & (df.hhsize == 2)) | ((df.income_in_thousands>76)  & (df.income_in_thousands<=85)  & (df.hhsize == 3)) | ((df.income_in_thousands>85)  & (df.income_in_thousands<=95)  & (df.hhsize == 4)))
+,is_income_moderate, (((df.income_in_thousands>0)  & (df.income_in_thousands<=100) & (df.hhsize == 1)) | ((df.income_in_thousands>100) & (df.income_in_thousands<=114) & (df.hhsize == 2)) | ((df.income_in_thousands>114) & (df.income_in_thousands<=128) & (df.hhsize == 3)) | ((df.income_in_thousands>128) & (df.income_in_thousands<=142) & (df.hhsize == 4)))
+,is_income_medium,   (((df.income_in_thousands>0)  & (df.income_in_thousands<=116) & (df.hhsize == 1)) | ((df.income_in_thousands>116) & (df.income_in_thousands<=133) & (df.hhsize == 2)) | ((df.income_in_thousands>133) & (df.income_in_thousands<=149) & (df.hhsize == 3)) | ((df.income_in_thousands>149) & (df.income_in_thousands<=166) & (df.hhsize == 4)))
+,is_income_high,     (((df.income_in_thousands>116)                                & (df.hhsize == 1)) | ((df.income_in_thousands>133)                                 & (df.hhsize == 2)) | ((df.income_in_thousands>149)                                 & (df.hhsize == 3)) | ((df.income_in_thousands>166)                                 & (df.hhsize == 4)))
+,is_peak, (((((df.start>=6)  & (df.start<=9)) | ((df.start>=15)  & (df.start<=18) )) & (df[dest_col_name].isin(LIST_SMALL_CORDON_TAZS_SF))) | ((((df.end>=6)  & (df.end<=9)) | ((df.end>=15)  & (df.end<=18) )) & (df[orig_col_name].isin(LIST_SMALL_CORDON_TAZS_SF))))  if _DF_IS_START else 1
+

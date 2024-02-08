@@ -158,6 +158,9 @@ CONSTANTS:
   min_waitTime: 0
   max_waitTime: 50
   TNC_missed_trip_penalty: 50
+  LIST_SMALL_CORDON_TAZS_SF: [1,3,5,12,13,15,18,20,23,2,4,10,11,14,16,17,19,21,22,109,110,41,39,37,35,33,28,25,24,29,6,30,8,40,38,36,34,32,27,26,31,7,9,79]
+
+
 
 # so far, we can use the same spec as for non-joint tours
 preprocessor:
@@ -166,6 +169,7 @@ preprocessor:
   TABLES:
     - land_use
     - tours
+    - trips
 
 #  - SPEC: trip_mode_choice_annotate_trips_preprocessor2
 #    DF: df
@@ -175,6 +179,7 @@ preprocessor:
 # to reduce memory needs filter chooser table to these fields
 TOURS_MERGED_CHOOSER_COLUMNS:
   - hhsize
+  - income_in_thousands
   - age
   - auto_ownership
   - number_of_participants
