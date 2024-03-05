@@ -50,31 +50,31 @@ NESTS:
               - DRIVE_HVY
               - DRIVE_COM
             - name: TNCTRANSIT
-              coefficient: 0.35
+              coefficient: 0.72
               alternatives:
                 - name: TNC_SINGLE_TRANSIT
-                  coefficient: 0.5
+                  coefficient: 0.8
                   alternatives:
                     - TNC_SINGLE_UBER_TRANSIT
                     - TNC_SINGLE_LYFT_TRANSIT
                     - TNC_SINGLE_CRUISE_TRANSIT
                 - name: TNC_SHARED_TRANSIT
-                  coefficient: 0.5
+                  coefficient: 0.8
                   alternatives:
                     - TNC_SHARED_UBER_TRANSIT
                     - TNC_SHARED_LYFT_TRANSIT
                     - TNC_SHARED_CRUISE_TRANSIT
       - name: RIDEHAIL
-        coefficient: 0.36
+        coefficient: 0.72
         alternatives:
           - name: TNC_SINGLE
-            coefficient: 0.5
+            coefficient: 0.8
             alternatives:
               - SINGLE_UBER
               - SINGLE_LYFT
               - SINGLE_CRUISE
           - name: TNC_SHARED
-            coefficient: 0.5
+            coefficient: 0.8
             alternatives:
               - SHARED_UBER
               - SHARED_LYFT
