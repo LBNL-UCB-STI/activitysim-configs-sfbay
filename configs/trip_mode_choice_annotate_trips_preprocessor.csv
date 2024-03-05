@@ -85,7 +85,6 @@ dest terminal time not counted at home,_dest_terminal_time,"np.where(inbound & l
 ,_drive_ferry_available_outbound,drive_lrf_available_outbound & (odt_skims['DRV_LRF_WLK_FERRYIVT']/100>0)
 ,_drive_ferry_available_inbound,drive_lrf_available_inbound & (odt_skims['WLK_LRF_DRV_FERRYIVT']/100>0)
 ,drive_ferry_available,"np.where(df.outbound, _drive_ferry_available_outbound, _drive_ferry_available_inbound)"
-,TNC_cruise_available, (df[dest_col_name].isin(TNC_cruise_operating_zones)) & (df[orig_col_name].isin(TNC_cruise_operating_zones))
 ,tnc_single_transit_uber_available,(odt_skims['TNC_SINGLE_TRANSIT_UBER_TOTIVT']>0)&(odt_skims['TNC_SINGLE_TRANSIT_UBER_KEYIVT']>0)
 ,tnc_single_transit_lyft_available,(odt_skims['TNC_SINGLE_TRANSIT_LYFT_TOTIVT']>0)&(odt_skims['TNC_SINGLE_TRANSIT_LYFT_KEYIVT']>0)
 ,tnc_single_transit_cruise_available,TNC_cruise_available & (odt_skims['TNC_SINGLE_TRANSIT_CRUISE_TOTIVT']>0)&(odt_skims['TNC_SINGLE_TRANSIT_CRUISE_KEYIVT']>0)
