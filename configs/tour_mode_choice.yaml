@@ -53,15 +53,15 @@ NESTS:
             - name: TNC_SINGLE_TRANSIT
               coefficient: coef_nest_TRANSIT_TNC_SINGLE
               alternatives:
-                - TNC_SINGLE_UBER_TRANSIT
-                - TNC_SINGLE_LYFT_TRANSIT
-                - TNC_SINGLE_CRUISE_TRANSIT
+                - TNC_SINGLE_TRANSIT_UBER
+                - TNC_SINGLE_TRANSIT_LYFT
+                - TNC_SINGLE_TRANSIT_CRUISE
             - name: TNC_SHARED_TRANSIT
               coefficient: coef_nest_TRANSIT_TNC_SHARED
               alternatives:
-                - TNC_SHARED_UBER_TRANSIT
-                - TNC_SHARED_LYFT_TRANSIT
-                - TNC_SHARED_CRUISE_TRANSIT
+                - TNC_SHARED_TRANSIT_UBER
+                - TNC_SHARED_TRANSIT_LYFT
+                - TNC_SHARED_TRANSIT_CRUISE
     - name: RIDEHAIL
       coefficient: coef_nest_RIDEHAIL
       alternatives:
