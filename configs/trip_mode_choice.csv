@@ -317,7 +317,8 @@ TNC Single LYFT - Tolls,@df.c_cost * odt_skims['HOV2TOLL_VTOLL'],,,,,,,,,,,,,,,,
 TNC Single LYFT - Bridge toll,@df.c_cost * (odt_skims['HOV2TOLL_BTOLL'] + dot_skims['HOV2TOLL_BTOLL']),,,,,,,,,,,,,,,,,,,,1,,,,
 TNC Single LYFT - Cost,"@df.c_cost * np.maximum(TNC_single_lyft_baseFare + odt_skims['TNC_SINGLE_LYFT_DDIST'] * TNC_single_lyft_costPerMile + odt_skims['TNC_SINGLE_LYFT_TOTIVT'] * TNC_single_lyft_costPerMinute, TNC_single_lyft_costMinimum) * 100",,,,,,,,,,,,,,,,,,,,1,,,,
 #TNC Single CRUISE,,,,,,,,,,,,,,,,,,,,,,,,,
-TNC Single CRUISE - Unavailable,(TNC_cruise_available == False) + (@SAV_ride_alone == False),,,,,,,,,,,,,,,,,,,,,-999,,,
+TNC Single CRUISE - Unavailable,(TNC_cruise_available == False),,,,,,,,,,,,,,,,,,,,,-999,,,
+TNC Single CRUISE - Restricted,(@SAV_ride_alone == False),,,,,,,,,,,,,,,,,,,,,-999,,,
 TNC Single CRUISE - In-vehicle time,@c_ivt * odt_skims['TNC_SINGLE_CRUISE_TOTIVT'] ,,,,,,,,,,,,,,,,,,,,,1,,,
 TNC Single CRUISE - Wait time,@c_ivt * 1.5 * df.origSingleTNCCruiseWaitTime,,,,,,,,,,,,,,,,,,,,,1,,,
 TNC Single CRUISE - Tolls,@df.c_cost * odt_skims['HOV2TOLL_VTOLL'],,,,,,,,,,,,,,,,,,,,,1,,,
@@ -337,7 +338,8 @@ TNC Shared LYFT - Tolls,@df.c_cost * odt_skims['HOV2TOLL_VTOLL'],,,,,,,,,,,,,,,,
 TNC Shared LYFT - Bridge toll,@df.c_cost * (odt_skims['HOV2TOLL_BTOLL'] + dot_skims['HOV2TOLL_BTOLL']),,,,,,,,,,,,,,,,,,,,,,,1,
 TNC Shared LYFT - Cost,"@df.c_cost * np.maximum(TNC_shared_lyft_baseFare + odt_skims['TNC_SHARED_LYFT_DDIST'] * TNC_shared_lyft_costPerMile + odt_skims['TNC_SHARED_LYFT_TOTIVT']* TNC_shared_lyft_costPerMinute, TNC_shared_lyft_costMinimum) * 100",,,,,,,,,,,,,,,,,,,,,,,1,
 #TNC Shared CRUISE,,,,,,,,,,,,,,,,,,,,,,,,,
-TNC Shared CRUISE - Unavailable,(TNC_cruise_available == False) + (@SAV_pooled == False),,,,,,,,,,,,,,,,,,,,,,,,-999
+TNC Shared CRUISE - Unavailable,(TNC_cruise_available == False),,,,,,,,,,,,,,,,,,,,,,,,-999
+TNC Shared CRUISE - Restricted,(@SAV_pooled == False),,,,,,,,,,,,,,,,,,,,,,,,-999
 TNC Shared CRUISE - In-vehicle time,@c_ivt * odt_skims['TNC_SHARED_CRUISE_TOTIVT'] * TNC_shared_cruise_IVTFactor,,,,,,,,,,,,,,,,,,,,,,,,1
 TNC Shared CRUISE - Wait time,@c_ivt  * 1.5 * df.origSharedTNCCruiseWaitTime,,,,,,,,,,,,,,,,,,,,,,,,1
 TNC Shared CRUISE - Tolls,@df.c_cost * odt_skims['HOV2TOLL_VTOLL'],,,,,,,,,,,,,,,,,,,,,,,,1
