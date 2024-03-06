@@ -51,7 +51,9 @@ dest terminal time not counted at home,_dest_terminal_time,"np.where(inbound & l
 ,origSharedTNCUberWaitTime,odt_skims['TNC_SHARED_UBER_WAIT'] * (1.0 - odt_skims['TNC_SHARED_UBER_REJECTIONPROB']) + TNC_missed_trip_penalty * odt_skims['TNC_SHARED_UBER_REJECTIONPROB']
 ,origSharedTNCLyftWaitTime,odt_skims['TNC_SHARED_LYFT_WAIT'] * (1.0 - odt_skims['TNC_SHARED_LYFT_REJECTIONPROB']) + TNC_missed_trip_penalty * odt_skims['TNC_SHARED_LYFT_REJECTIONPROB']
 ,origSharedTNCCruiseWaitTime,odt_skims['TNC_SHARED_CRUISE_WAIT'] * (1.0 - odt_skims['TNC_SHARED_CRUISE_REJECTIONPROB']) + TNC_missed_trip_penalty * odt_skims['TNC_SHARED_CRUISE_REJECTIONPROB']
-,TNC_cruise_available, (df[DESTINATION].isin(TNC_cruise_operating_zones)) & (df[ORIGIN].isin(TNC_cruise_operating_zones)),
+,TNC_cruise_available, (df[DESTINATION].isin(TNC_cruise_operating_zones)) & (df[ORIGIN].isin(TNC_cruise_operating_zones))
+,TNC_cruise_ride_alone_available, 'ride_alone' in SAV_modes
+,TNC_cruise_pooled_available, 'pooled' in SAV_modes
 # FIXME RH TOTIVT not showing up in skims
 #,origSingleTNCUberTotIVT,odt_skims['TNC_SINGLE_UBER_TOTIVT']
 #,origSingleTNCLyftTotIVT,odt_skims['TNC_SINGLE_LYFT_TOTIVT']
