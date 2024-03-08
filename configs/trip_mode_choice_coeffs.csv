@@ -126,7 +126,7 @@ joint_ride_hail_ASC_sr2,0,0,0,0,-7,-7,-7,-7,-7,0
 joint_ride_hail_ASC_sr3p,0,0,0,0,-7,-7,-7,-7,-7,0
 joint_ride_hail_ASC_walk,0,0,0,0,-7,-7,-7,-7,-7,0
 joint_ride_hail_ASC_walk_transit,0,0,0,0,0,0,0,0,0,0
-joint_ride_hail_ASC_tnc_transit,0,0,0,0,0,0,0,0,0,0
+joint_ride_hail_ASC_TNC_transit,0,0,0,0,0,0,0,0,0,0
 joint_ride_hail_ASC_taxi,0,0,0,0,-7,-7,-7,-7,-7,0
 joint_ride_hail_ASC_tnc_single,0,0,0,0,-4.7339,-4.7339,-4.7339,-4.7339,-4.7339,0
 joint_ride_hail_ASC_tnc_shared,0,0,0,0,0,0,0,0,0,0
