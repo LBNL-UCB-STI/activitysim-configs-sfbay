@@ -53,6 +53,13 @@ dest terminal time not counted at home,_dest_terminal_time,"np.where(inbound & l
 ,origSharedTNCLyftWaitTime,odt_skims['TNC_SHARED_LYFT_WAIT'] * (1.0 - odt_skims['TNC_SHARED_LYFT_REJECTIONPROB']) + TNC_missed_trip_penalty * odt_skims['TNC_SHARED_LYFT_REJECTIONPROB']
 ,origSharedTNCCruiseWaitTime,odt_skims['TNC_SHARED_CRUISE_WAIT'] * (1.0 - odt_skims['TNC_SHARED_CRUISE_REJECTIONPROB']) + TNC_missed_trip_penalty * odt_skims['TNC_SHARED_CRUISE_REJECTIONPROB']
 ,TNC_cruise_available, (df[DESTINATION].isin(TNC_cruise_operating_zones)) & (df[ORIGIN].isin(TNC_cruise_operating_zones))
+# TNC_Transit rejectionprobs
+,origSingleTNCTransitUberWaitTime,(odt_skims['TNC_SINGLE_TRANSIT_UBER_IWAIT']) * (1.0 - odt_skims['TNC_SINGLE_TRANSIT_UBER_REJECTIONPROB']) + TNC_missed_trip_penalty * odt_skims['TNC_SINGLE_TRANSIT_UBER_REJECTIONPROB']
+,origSingleTNCTransitLyftWaitTime,(odt_skims['TNC_SINGLE_TRANSIT_LYFT_IWAIT']) * (1.0 - odt_skims['TNC_SINGLE_TRANSIT_LYFT_REJECTIONPROB']) + TNC_missed_trip_penalty * odt_skims['TNC_SINGLE_TRANSIT_LYFT_REJECTIONPROB']
+,origSingleTNCTransitCruiseWaitTime,(odt_skims['TNC_SINGLE_TRANSIT_CRUISE_IWAIT']) * (1.0 - odt_skims['TNC_SINGLE_TRANSIT_CRUISE_REJECTIONPROB']) + TNC_missed_trip_penalty * odt_skims['TNC_SINGLE_TRANSIT_CRUISE_REJECTIONPROB']
+,origSharedTNCTransitUberWaitTime,(odt_skims['TNC_SHARED_TRANSIT_UBER_IWAIT']) * (1.0 - odt_skims['TNC_SHARED_TRANSIT_UBER_REJECTIONPROB']) + TNC_missed_trip_penalty * odt_skims['TNC_SHARED_TRANSIT_UBER_REJECTIONPROB']
+,origSharedTNCTransitLyftWaitTime,(odt_skims['TNC_SHARED_TRANSIT_LYFT_IWAIT']) * (1.0 - odt_skims['TNC_SHARED_TRANSIT_LYFT_REJECTIONPROB']) + TNC_missed_trip_penalty * odt_skims['TNC_SHARED_TRANSIT_LYFT_REJECTIONPROB']
+,origSharedTNCTransitCruiseWaitTime,(odt_skims['TNC_SHARED_TRANSIT_CRUISE_IWAIT']) * (1.0 - odt_skims['TNC_SHARED_TRANSIT_CRUISE_REJECTIONPROB']) + TNC_missed_trip_penalty * odt_skims['TNC_SHARED_TRANSIT_CRUISE_REJECTIONPROB']
 # FIXME RH TOTIVT not showing up in skims,,
 #,origSingleTNCUberTotIVT,odt_skims['TNC_SINGLE_UBER_TOTIVT']
 #,origSingleTNCLyftTotIVT,odt_skims['TNC_SINGLE_LYFT_TOTIVT']
