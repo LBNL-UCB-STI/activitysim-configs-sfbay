@@ -66,7 +66,7 @@ models:
   ### mp_households step
   # - school_location
   # - workplace_location
-  - auto_ownership_simulate
+  # - auto_ownership_simulate
   - free_parking
   - cdap_simulate
   - mandatory_tour_frequency
@@ -99,7 +99,7 @@ multiprocess_steps:
   - name: mp_initialize
     begin: initialize_landuse
   - name: mp_households
-    begin: auto_ownership_simulate
+    begin: free_parking
     slice:
       tables:
         - households
@@ -159,3 +159,5 @@ household_median_value_of_time:
   2: 8.81
   3: 10.44
   4: 12.86
+
+rng_base_seed: 718347876
