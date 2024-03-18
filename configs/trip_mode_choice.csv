@@ -448,12 +448,12 @@ TNC Shared CRUISE - Bridge toll,@df.c_cost * odt_skims['HOV2TOLL_BTOLL'],,,,,,,,
 TNC Shared CRUISE - Cost,"@df.c_cost * np.maximum(TNC_shared_cruise_baseFare + odt_skims['TNC_SHARED_CRUISE_DDIST'] * TNC_shared_cruise_costPerMile + odt_skims['TNC_SHARED_CRUISE_TOTIVT']* TNC_shared_cruise_costPerMinute, TNC_shared_cruise_costMinimum)",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,1
 TNC Shared CRUISE - SAV ASC,@SAV_ASC,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,1
 #,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Auto tour mode availability,tour_mode_is_auto,,,,,,,,-999,-999,-999,-999,-999,-999,-999,-999,-999,-999,-999,,,,,,,,,,,,
+Auto tour mode availability,tour_mode_is_auto,,,,,,,,-999,-999,-999,-999,-999,-999,-999,-999,-999,-999,-999,-999,-999,-999,-999,-999,-999,-999,-999,-999,-999,-999,-999
 Walk tour mode availability,tour_mode_is_walk,-999,-999,-999,-999,-999,-999,,-999,-999,-999,-999,-999,-999,-999,-999,-999,-999,-999,,,,,,,,,,,,
-Bike tour mode availability,tour_mode_is_bike,-999,-999,-999,-999,-999,-999,,,-999,-999,-999,-999,-999,-999,-999,-999,-999,-999,,,,,,,,,,,,
+Bike tour mode availability,tour_mode_is_bike,-999,-999,-999,-999,-999,-999,,,-999,-999,-999,-999,-999,-999,-999,-999,-999,-999,-999,-999,-999,-999,-999,-999,-999,-999,-999,-999,-999,-999
 Walk to Transit tour mode availability,tour_mode_is_walk_transit,-999,-999,,,,,,-999,,,,,,-999,-999,-999,-999,-999,,,,,,,,,,,,
 TNC to Transit tour mode availability,tour_mode_is_TNC_transit,-999,-999,,,,,,-999,,,,,,-999,-999,-999,-999,-999,,,,,,,,,,,,
-Drive to Transit tour modes availability,tour_mode_is_drive_transit,-999,-999,-999,-999,-999,-999,-999,-999,-999,-999,-999,-999,-999,,,,,,,,,,,,,,,,,
+Drive to Transit tour modes availability,tour_mode_is_drive_transit,-999,-999,-999,-999,-999,-999,-999,-999,-999,-999,-999,-999,-999,,,,,,-999,-999,-999,-999,-999,-999,-999,-999,-999,-999,-999,-999
 Ride hail tour modes availability,tour_mode_is_ride_hail,-999,-999,,,,,,-999,,,,,,-999,-999,-999,-999,-999,,,,,,,,,,,,
 #indiv tour ASCs,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 Drive Alone tour mode ASC -- shared ride 2,@sov_ASC_sr2 * (df.is_indiv & df.i_tour_mode.isin(I_SOV_MODES)),,,1,1,,,,,,,,,,,,,,,,,,,,,,,,,,
