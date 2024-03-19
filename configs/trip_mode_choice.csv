@@ -459,18 +459,18 @@ Ride hail tour modes availability,tour_mode_is_ride_hail,-999,-999,,,,,,-999,,,,
 Drive Alone tour mode ASC -- shared ride 2,@sov_ASC_sr2 * (df.is_indiv & df.i_tour_mode.isin(I_SOV_MODES)),,,1,1,,,,,,,,,,,,,,,,,,,,,,,,,,
 Drive Alone tour mode ASC -- shared ride 3+,@sov_ASC_sr3p * (df.is_indiv & df.i_tour_mode.isin(I_SOV_MODES)),,,,,1,1,,,,,,,,,,,,,,,,,,,,,,,,
 Drive Alone tour mode ASC -- walk,@sov_ASC_walk * (df.is_indiv & df.i_tour_mode.isin(I_SOV_MODES)),,,,,,,1,,,,,,,,,,,,,,,,,,,,,,,
-Drive Alone tour mode ASC -- ride hail,@sov_ASC_rh * (df.is_indiv & df.i_tour_mode.isin(I_SOV_MODES)),,,,,,,,,,,,,,,,,,,,,,,,,1,1,1,1,1,1
+#Drive Alone tour mode ASC -- ride hail,@sov_ASC_rh * (df.is_indiv & df.i_tour_mode.isin(I_SOV_MODES)),,,,,,,,,,,,,,,,,,,,,,,,,1,1,1,1,1,1
 Shared Ride 2 tour mode ASC -- shared ride 2,@sr2_ASC_sr2 * (df.is_indiv & df.i_tour_mode.isin(I_SR2_MODES)),,,1,1,,,,,,,,,,,,,,,,,,,,,,,,,,
 Shared Ride 2 tour mode ASC -- shared ride 3+,@sr2_ASC_sr3p * (df.is_indiv & df.i_tour_mode.isin(I_SR2_MODES)),,,,,1,1,,,,,,,,,,,,,,,,,,,,,,,,
 Shared Ride 2 tour mode ASC -- walk,@sr2_ASC_walk * (df.is_indiv & df.i_tour_mode.isin(I_SR2_MODES)),,,,,,,1,,,,,,,,,,,,,,,,,,,,,,,
-Shared Ride 2 tour mode ASC -- ride hail,@sr2_ASC_rh * (df.is_indiv & df.i_tour_mode.isin(I_SR2_MODES)),,,,,,,,,,,,,,,,,,,,,,,,,1,1,1,1,1,1
+#Shared Ride 2 tour mode ASC -- ride hail,@sr2_ASC_rh * (df.is_indiv & df.i_tour_mode.isin(I_SR2_MODES)),,,,,,,,,,,,,,,,,,,,,,,,,1,1,1,1,1,1
 Shared Ride 3+ tour mode ASC -- shared ride 2,@sr3p_ASC_sr2 * (df.is_indiv & df.i_tour_mode.isin(I_SR3P_MODES)),,,1,1,,,,,,,,,,,,,,,,,,,,,,,,,,
 Shared Ride 3+ tour mode ASC -- shared ride 3+,@sr3p_ASC_sr3p * (df.is_indiv & df.i_tour_mode.isin(I_SR3P_MODES)),,,,,1,1,,,,,,,,,,,,,,,,,,,,,,,,
 Shared Ride 3+ tour mode ASC -- walk,@sr3p_ASC_walk * (df.is_indiv & df.i_tour_mode.isin(I_SR3P_MODES)),,,,,,,1,,,,,,,,,,,,,,,,,,,,,,,
-Shared Ride 3+ tour mode ASC -- ride hail,@sr3p_ASC_rh * (df.is_indiv & df.i_tour_mode.isin(I_SR3P_MODES)),,,,,,,,,,,,,,,,,,,,,,,,,1,1,1,1,1,1
+#Shared Ride 3+ tour mode ASC -- ride hail,@sr3p_ASC_rh * (df.is_indiv & df.i_tour_mode.isin(I_SR3P_MODES)),,,,,,,,,,,,,,,,,,,,,,,,,1,1,1,1,1,1
 Walk tour mode ASC -- ride hail,@walk_ASC_rh * df.is_indiv * (df.i_tour_mode == I_WALK_MODE),,,,,,,,,,,,,,,,,,,,,,,,,1,1,1,1,1,1
 Bike tour mode ASC -- walk,@bike_ASC_walk * df.is_indiv * (df.i_tour_mode == I_BIKE_MODE),,,,,,,1,,,,,,,,,,,,,,,,,,,,,,,
-Bike tour mode ASC -- ride hail,@bike_ASC_rh * df.is_indiv * (df.i_tour_mode == I_BIKE_MODE),,,,,,,,,,,,,,,,,,,,,,,,,1,1,1,1,1,1
+#Bike tour mode ASC -- ride hail,@bike_ASC_rh * df.is_indiv * (df.i_tour_mode == I_BIKE_MODE),,,,,,,,,,,,,,,,,,,,,,,,,1,1,1,1,1,1
 Walk to Transit tour mode ASC -- light rail,@walk_transit_ASC_lightrail * (df.is_indiv & df.tour_mode_is_walk_transit & ~df.walk_ferry_available),,,,,,,,,,1,,,,,,,,,,,,,,,,,,,,
 Walk to Transit tour mode ASC -- ferry,@walk_transit_ASC_ferry * (df.is_indiv & df.tour_mode_is_walk_transit & df.walk_ferry_available),,,,,,,,,,1,,,,,,,,,,,,,,,,,,,,
 Walk to Transit tour mode ASC -- express bus,@walk_transit_ASC_express * (df.is_indiv & df.tour_mode_is_walk_transit),,,,,,,,,,,1,,,,,,,,,,,,,,,,,,,
@@ -486,8 +486,8 @@ Drive to Transit tour mode ASC -- ferry,@drive_transit_ASC_ferry * (df.is_indiv 
 Drive to Transit tour mode ASC -- express bus,@drive_transit_ASC_express * (df.is_indiv & df.tour_mode_is_drive_transit),,,,,,,,,,,,,,,,1,,,,,,,,,,,,,,
 Drive to Transit tour mode ASC -- heavy rail,@drive_transit_ASC_heavyrail * (df.is_indiv & df.tour_mode_is_drive_transit),,,,,,,,,,,,,,,,,1,,,,,,,,,,,,,
 Drive to Transit tour mode ASC -- commuter rail,@drive_transit_ASC_commuter * (df.is_indiv & df.tour_mode_is_drive_transit),,,,,,,,,,,,,,,,,,1,,,,,,,,,,,,
-Drive to Transit tour mode ASC -- ride hail,@drive_transit_ASC_rh * (df.is_indiv & df.tour_mode_is_drive_transit),,,,,,,,,,,,,,,,,,,,,,,,,1,1,1,1,1,1
-Drive to Transit tour mode ASC -- tnc_transit,@drive_transit_ASC_TNC_transit * (df.is_indiv & df.tour_mode_is_drive_transit),,,,,,,,,,,,,,,,,,,1,1,1,1,1,1,,,,,,
+#Drive to Transit tour mode ASC -- ride hail,@drive_transit_ASC_rh * (df.is_indiv & df.tour_mode_is_drive_transit),,,,,,,,,,,,,,,,,,,,,,,,,1,1,1,1,1,1
+#Drive to Transit tour mode ASC -- tnc_transit,@drive_transit_ASC_TNC_transit * (df.is_indiv & df.tour_mode_is_drive_transit),,,,,,,,,,,,,,,,,,,1,1,1,1,1,1,,,,,,
 TNC to Transit tour mode ASC -- transit,@TNC_transit_ASC * (df.is_indiv & df.tour_mode_is_TNC_transit),,,,,,,,,1,1,1,1,1,,,,,,1,1,1,1,1,1,,,,,,
 TNC to Transit tour mode ASC -- shared ride 2,@TNC_transit_ASC_sr2 * (df.is_indiv & df.tour_mode_is_TNC_transit),,,1,1,,,,,,,,,,,,,,,,,,,,,,,,,,
 TNC to Transit tour mode ASC -- shared ride 3+,@TNC_transit_ASC_sr3p * (df.is_indiv & df.tour_mode_is_TNC_transit),,,,,1,1,,,,,,,,,,,,,,,,,,,,,,,,
@@ -506,10 +506,10 @@ Ride Hail tour mode ASC -- ride hail,@ride_hail_ASC_tnc_shared * (df.is_indiv & 
 joint - auto tour mode ASC -- shared ride 2,@joint_auto_ASC_sr2 * (df.is_joint & df.i_tour_mode.isin(I_AUTO_MODES)),,,1,1,,,,,,,,,,,,,,,,,,,,,,,,,,
 joint - auto tour mode ASC -- shared ride 3+,@joint_auto_ASC_sr3p * (df.is_joint & df.i_tour_mode.isin(I_AUTO_MODES)),,,,,1,1,,,,,,,,,,,,,,,,,,,,,,,,
 joint - auto tour mode ASC -- walk,@joint_auto_ASC_walk * (df.is_joint & df.i_tour_mode.isin(I_AUTO_MODES)),,,,,,,1,,,,,,,,,,,,,,,,,,,,,,,
-joint - auto tour mode ASC -- ride hail,@joint_auto_ASC_rh * (df.is_joint & df.i_tour_mode.isin(I_RIDE_HAIL_MODES)),,,,,,,,,,,,,,,,,,,,,,,,,1,1,1,1,1,1
+#joint - auto tour mode ASC -- ride hail,@joint_auto_ASC_rh * (df.is_joint & df.i_tour_mode.isin(I_RIDE_HAIL_MODES)),,,,,,,,,,,,,,,,,,,,,,,,,1,1,1,1,1,1
 joint - Walk tour mode ASC -- ride hail,@joint_walk_ASC_rh * (df.is_joint & df.i_tour_mode.isin(I_RIDE_HAIL_MODES)),,,,,,,1,,,,,,,,,,,,,,,,,,,,,,,
 joint - Bike tour mode ASC -- walk,@joint_bike_ASC_walk * df.is_joint * (df.i_tour_mode == I_BIKE_MODE),,,,,,,1,,,,,,,,,,,,,,,,,,,,,,,
-joint - Bike tour mode ASC -- ride hail,@joint_bike_ASC_rh * df.is_joint * (df.i_tour_mode == I_BIKE_MODE),,,,,,,,,,,,,,,,,,,,,,,,,1,1,1,1,1,1
+#joint - Bike tour mode ASC -- ride hail,@joint_bike_ASC_rh * df.is_joint * (df.i_tour_mode == I_BIKE_MODE),,,,,,,,,,,,,,,,,,,,,,,,,1,1,1,1,1,1
 joint - Walk to Transit tour mode ASC -- light rail,@joint_walk_transit_ASC_lightrail * (df.is_joint & df.tour_mode_is_walk_transit & ~df.walk_ferry_available),,,,,,,,,,1,,,,,,,,,,,,,,,,,,,,
 joint - Walk to Transit tour mode ASC -- ferry,@joint_walk_transit_ASC_ferry * (df.is_joint & df.tour_mode_is_walk_transit & df.walk_ferry_available),,,,,,,,,,1,,,,,,,,,,,,,,,,,,,,
 joint - Walk to Transit tour mode ASC -- express bus,@joint_walk_transit_ASC_express * (df.is_joint & df.tour_mode_is_walk_transit),,,,,,,,,,,1,,,,,,,,,,,,,,,,,,,
@@ -525,7 +525,7 @@ joint - Drive to Transit tour mode ASC -- ferry,@joint_drive_transit_ASC_ferry *
 joint - Drive to Transit tour mode ASC -- express bus,@joint_drive_transit_ASC_express * (df.is_joint & df.tour_mode_is_drive_transit),,,,,,,,,,,,,,,,1,,,,,,,,,,,,,,
 joint - Drive to Transit tour mode ASC -- heavy rail,@joint_drive_transit_ASC_heavyrail * (df.is_joint & df.tour_mode_is_drive_transit),,,,,,,,,,,,,,,,,1,,,,,,,,,,,,,
 joint - Drive to Transit tour mode ASC -- commuter rail,@joint_drive_transit_ASC_commuter * (df.is_joint & df.tour_mode_is_drive_transit),,,,,,,,,,,,,,,,,,1,,,,,,,,,,,,
-joint - Drive to Transit tour mode ASC -- ride hail,@joint_drive_transit_ASC_rh * (df.is_joint & df.tour_mode_is_drive_transit),,,,,,,,,,,,,,,,,,,,,,,,,1,1,1,1,1,1
+#joint - Drive to Transit tour mode ASC -- ride hail,@joint_drive_transit_ASC_rh * (df.is_joint & df.tour_mode_is_drive_transit),,,,,,,,,,,,,,,,,,,,,,,,,1,1,1,1,1,1
 joint - TNC to Transit tour mode ASC -- tnc_transit,@joint_TNC_transit_ASC * (df.is_joint & df.tour_mode_is_TNC_transit),,,,,,,,,,,,,,,,,,,1,1,1,1,1,1,,,,,,
 joint - TNC to Transit tour mode ASC -- walk_transit,@joint_TNC_transit_ASC_walk_transit * (df.is_joint & df.tour_mode_is_TNC_transit),,,,,,,,,1,1,1,1,1,,,,,,,,,,,,,,,,,
 joint - TNC to Transit tour mode ASC -- shared ride 2,@joint_TNC_transit_ASC_sr2 * (df.is_joint & df.tour_mode_is_TNC_transit),,,1,1,,,,,,,,,,,,,,,,,,,,,,,,,,
