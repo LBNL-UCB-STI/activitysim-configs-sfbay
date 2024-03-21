@@ -68,13 +68,13 @@ NESTS:
         coefficient: 0.36
         alternatives:
           - name: TNC_SINGLE
-            coefficient: 0.8
+            coefficient: 1.0
             alternatives:
               - SINGLE_UBER
               - SINGLE_LYFT
               - SINGLE_CRUISE
           - name: TNC_SHARED
-            coefficient: 0.8
+            coefficient: 1.0
             alternatives:
               - SHARED_UBER
               - SHARED_LYFT
