@@ -34,7 +34,7 @@ NESTS:
         coefficient:  0.72
         alternatives:
             - name: WALKACCESS
-              coefficient: 0.35
+              coefficient: 0.5
               alternatives:
               - WALK_LOC
               - WALK_LRF
@@ -42,7 +42,7 @@ NESTS:
               - WALK_HVY
               - WALK_COM
             - name: DRIVEACCESS
-              coefficient: 0.35
+              coefficient: 0.5
               alternatives:
               - DRIVE_LOC
               - DRIVE_LRF
@@ -65,7 +65,7 @@ NESTS:
                     - TNC_SHARED_TRANSIT_LYFT
                     - TNC_SHARED_TRANSIT_CRUISE
       - name: RIDEHAIL
-        coefficient: 0.72
+        coefficient: 0.36
         alternatives:
           - name: TNC_SINGLE
             coefficient: 0.8
