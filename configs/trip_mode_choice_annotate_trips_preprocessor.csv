@@ -18,6 +18,7 @@ Description,Target,Expression
 ,tour_mode_is_walk_transit,i_tour_mode.isin(I_WALK_TRANSIT_MODES)
 ,tour_mode_is_drive_transit,i_tour_mode.isin(I_DRIVE_TRANSIT_MODES)
 ,tour_mode_is_ride_hail,i_tour_mode.isin(I_RIDE_HAIL_MODES)
+,tour_mode_is_TNC_transit,i_tour_mode.isin(I_TNC_TRANSIT_MODES)
 #,,
 ,inbound,~df.outbound
 ,first_trip,df.trip_num == 1
@@ -45,13 +46,27 @@ dest terminal time not counted at home,_dest_terminal_time,"np.where(inbound & l
 ,origin_walk_time,shortWalk*60/walkSpeed
 ,destination_walk_time,shortWalk*60/walkSpeed
 # RIDEHAIL,, Could just define this in trip_mode_choice.csv but leaving this for now so that we can factor in rejected trips if needed
-,origSingleTNCWaitTime,odt_skims['RH_SOLO_WAIT'] * (1.0 - odt_skims['RH_SOLO_REJECTIONPROB']) + TNC_missed_trip_penalty * odt_skims['RH_SOLO_REJECTIONPROB']
-,origSingleTNCUberWaitTime,odt_skims['RH_UBER_SOLO_WAIT'] * (1.0 - odt_skims['RH_UBER_SOLO_REJECTIONPROB']) + TNC_missed_trip_penalty * odt_skims['RH_UBER_SOLO_REJECTIONPROB']
-,origSingleTNCLyftWaitTime,odt_skims['RH_LYFT_SOLO_WAIT'] * (1.0 - odt_skims['RH_LYFT_SOLO_REJECTIONPROB']) + TNC_missed_trip_penalty * odt_skims['RH_LYFT_SOLO_REJECTIONPROB']
-,origSingleTNCCruiseWaitTime,odt_skims['RH_CRUISE_SOLO_WAIT'] * (1.0 - odt_skims['RH_CRUISE_SOLO_REJECTIONPROB']) + TNC_missed_trip_penalty * odt_skims['RH_CRUISE_SOLO_REJECTIONPROB']
-,origSharedTNCUberWaitTime,odt_skims['RH_UBER_POOLED_WAIT'] * (1.0 - odt_skims['RH_UBER_POOLED_REJECTIONPROB']) + TNC_missed_trip_penalty * odt_skims['RH_UBER_POOLED_REJECTIONPROB']
-,origSharedTNCLyftWaitTime,odt_skims['RH_LYFT_POOLED_WAIT'] * (1.0 - odt_skims['RH_LYFT_POOLED_REJECTIONPROB']) + TNC_missed_trip_penalty * odt_skims['RH_LYFT_POOLED_REJECTIONPROB']
-,origSharedTNCCruiseWaitTime,odt_skims['RH_CRUISE_POOLED_WAIT'] * (1.0 - odt_skims['RH_CRUISE_POOLED_REJECTIONPROB']) + TNC_missed_trip_penalty * odt_skims['RH_CRUISE_POOLED_REJECTIONPROB']
+,origSingleTNCUberWaitTime,odt_skims['TNC_SINGLE_UBER_WAIT'] * (1.0 - odt_skims['TNC_SINGLE_UBER_REJECTIONPROB']) + TNC_missed_trip_penalty * odt_skims['TNC_SINGLE_UBER_REJECTIONPROB']
+,origSingleTNCLyftWaitTime,odt_skims['TNC_SINGLE_LYFT_WAIT'] * (1.0 - odt_skims['TNC_SINGLE_LYFT_REJECTIONPROB']) + TNC_missed_trip_penalty * odt_skims['TNC_SINGLE_LYFT_REJECTIONPROB']
+,origSingleTNCCruiseWaitTime,odt_skims['TNC_SINGLE_CRUISE_WAIT'] * (1.0 - odt_skims['TNC_SINGLE_CRUISE_REJECTIONPROB']) + TNC_missed_trip_penalty * odt_skims['TNC_SINGLE_CRUISE_REJECTIONPROB']
+,origSharedTNCUberWaitTime,odt_skims['TNC_SHARED_UBER_WAIT'] * (1.0 - odt_skims['TNC_SHARED_UBER_REJECTIONPROB']) + TNC_missed_trip_penalty * odt_skims['TNC_SHARED_UBER_REJECTIONPROB']
+,origSharedTNCLyftWaitTime,odt_skims['TNC_SHARED_LYFT_WAIT'] * (1.0 - odt_skims['TNC_SHARED_LYFT_REJECTIONPROB']) + TNC_missed_trip_penalty * odt_skims['TNC_SHARED_LYFT_REJECTIONPROB']
+,origSharedTNCCruiseWaitTime,odt_skims['TNC_SHARED_CRUISE_WAIT'] * (1.0 - odt_skims['TNC_SHARED_CRUISE_REJECTIONPROB']) + TNC_missed_trip_penalty * odt_skims['TNC_SHARED_CRUISE_REJECTIONPROB']
+,TNC_cruise_available, (df[DESTINATION].isin(TNC_cruise_operating_zones)) & (df[ORIGIN].isin(TNC_cruise_operating_zones))
+# TNC_Transit rejectionprobs
+,origSingleTNCTransitUberWaitTime,(odt_skims['TNC_SINGLE_TRANSIT_UBER_IWAIT']) * (1.0 - odt_skims['TNC_SINGLE_TRANSIT_UBER_REJECTIONPROB']) + TNC_missed_trip_penalty * odt_skims['TNC_SINGLE_TRANSIT_UBER_REJECTIONPROB']
+,origSingleTNCTransitLyftWaitTime,(odt_skims['TNC_SINGLE_TRANSIT_LYFT_IWAIT']) * (1.0 - odt_skims['TNC_SINGLE_TRANSIT_LYFT_REJECTIONPROB']) + TNC_missed_trip_penalty * odt_skims['TNC_SINGLE_TRANSIT_LYFT_REJECTIONPROB']
+,origSingleTNCTransitCruiseWaitTime,(odt_skims['TNC_SINGLE_TRANSIT_CRUISE_IWAIT']) * (1.0 - odt_skims['TNC_SINGLE_TRANSIT_CRUISE_REJECTIONPROB']) + TNC_missed_trip_penalty * odt_skims['TNC_SINGLE_TRANSIT_CRUISE_REJECTIONPROB']
+,origSharedTNCTransitUberWaitTime,(odt_skims['TNC_SHARED_TRANSIT_UBER_IWAIT']) * (1.0 - odt_skims['TNC_SHARED_TRANSIT_UBER_REJECTIONPROB']) + TNC_missed_trip_penalty * odt_skims['TNC_SHARED_TRANSIT_UBER_REJECTIONPROB']
+,origSharedTNCTransitLyftWaitTime,(odt_skims['TNC_SHARED_TRANSIT_LYFT_IWAIT']) * (1.0 - odt_skims['TNC_SHARED_TRANSIT_LYFT_REJECTIONPROB']) + TNC_missed_trip_penalty * odt_skims['TNC_SHARED_TRANSIT_LYFT_REJECTIONPROB']
+,origSharedTNCTransitCruiseWaitTime,(odt_skims['TNC_SHARED_TRANSIT_CRUISE_IWAIT']) * (1.0 - odt_skims['TNC_SHARED_TRANSIT_CRUISE_REJECTIONPROB']) + TNC_missed_trip_penalty * odt_skims['TNC_SHARED_TRANSIT_CRUISE_REJECTIONPROB']
+# FIXME RH TOTIVT not showing up in skims,,
+#,origSingleTNCUberTotIVT,odt_skims['TNC_SINGLE_UBER_TOTIVT']
+#,origSingleTNCLyftTotIVT,odt_skims['TNC_SINGLE_LYFT_TOTIVT']
+#,origSingleTNCCruiseTotIVT,odt_skims['TNC_SINGLE_CRUISE_TOTIVT']
+#,origSharedTNCUberTotIVT,odt_skims['TNC_SHARED_UBER_TOTIVT']
+#,origSharedTNCLyftTotIVT,odt_skims['TNC_SHARED_LYFT_TOTIVT']
+#,origSharedTNCCruiseTotIVT,odt_skims['TNC_SHARED_CRUISE_TOTIVT']
 #,,
 ,sov_available,odt_skims['SOV_TIME']>0
 ,hov2_available,odt_skims['HOV2_TIME']>0
@@ -78,6 +93,18 @@ dest terminal time not counted at home,_dest_terminal_time,"np.where(inbound & l
 ,_drive_ferry_available_outbound,drive_lrf_available_outbound & (odt_skims['DRV_LRF_WLK_FERRYIVT']/100>0)
 ,_drive_ferry_available_inbound,drive_lrf_available_inbound & (odt_skims['WLK_LRF_DRV_FERRYIVT']/100>0)
 ,drive_ferry_available,"np.where(df.outbound, _drive_ferry_available_outbound, _drive_ferry_available_inbound)"
+,tnc_single_transit_uber_available,False
+#(odt_skims['TNC_SINGLE_TRANSIT_UBER_TOTIVT']>0)&(odt_skims['TNC_SINGLE_TRANSIT_UBER_KEYIVT']>0)
+,tnc_single_transit_lyft_available,False
+#(odt_skims['TNC_SINGLE_TRANSIT_LYFT_TOTIVT']>0)&(odt_skims['TNC_SINGLE_TRANSIT_LYFT_KEYIVT']>0)
+,tnc_single_transit_cruise_available,False
+#TNC_cruise_available & (odt_skims['TNC_SINGLE_TRANSIT_CRUISE_TOTIVT']>0)&(odt_skims['TNC_SINGLE_TRANSIT_CRUISE_KEYIVT']>0)
+,tnc_shared_transit_uber_available,False
+#(odt_skims['TNC_SHARED_TRANSIT_UBER_TOTIVT']>0)&(odt_skims['TNC_SHARED_TRANSIT_UBER_KEYIVT']>0)
+,tnc_shared_transit_lyft_available,False
+#(odt_skims['TNC_SHARED_TRANSIT_LYFT_TOTIVT']>0)&(odt_skims['TNC_SHARED_TRANSIT_LYFT_KEYIVT']>0)
+,tnc_shared_transit_cruise_available,False
+#TNC_cruise_available & (odt_skims['TNC_SHARED_TRANSIT_CRUISE_TOTIVT']>0)&(odt_skims['TNC_SHARED_TRANSIT_CRUISE_KEYIVT']>0)
 #,od_dist_walk,od_skims['DISTWALK']
 #,do_dist_walk,od_skims.reverse('DISTWALK')
 #,max_dist_walk,od_skims.max('DISTWALK')

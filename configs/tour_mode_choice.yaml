@@ -5,63 +5,78 @@ NESTS:
   name: root
   coefficient: coef_nest_root
   alternatives:
-      - name: AUTO
-        coefficient: coef_nest_AUTO
-        alternatives:
-            - name: DRIVEALONE
-              coefficient: coef_nest_AUTO_DRIVEALONE
+    - name: AUTO
+      coefficient: coef_nest_AUTO
+      alternatives:
+        - name: DRIVEALONE
+          coefficient: coef_nest_AUTO_DRIVEALONE
+          alternatives:
+            - DRIVEALONEFREE
+            - DRIVEALONEPAY
+        - name: SHAREDRIDE2
+          coefficient: coef_nest_AUTO_SHAREDRIDE2
+          alternatives:
+            - SHARED2FREE
+            - SHARED2PAY
+        - name: SHAREDRIDE3
+          coefficient: coef_nest_AUTO_SHAREDRIDE3
+          alternatives:
+            - SHARED3FREE
+            - SHARED3PAY
+    - name: NONMOTORIZED
+      coefficient: coef_nest_NONMOTORIZED
+      alternatives:
+        - WALK
+        - BIKE
+    - name: TRANSIT
+      coefficient: coef_nest_TRANSIT
+      alternatives:
+        - name: WALKACCESS
+          coefficient: coef_nest_TRANSIT_WALKACCESS
+          alternatives:
+            - WALK_LOC
+            - WALK_LRF
+            - WALK_EXP
+            - WALK_HVY
+            - WALK_COM
+        - name: DRIVEACCESS
+          coefficient: coef_nest_TRANSIT_DRIVEACCESS
+          alternatives:
+            - DRIVE_LOC
+            - DRIVE_LRF
+            - DRIVE_EXP
+            - DRIVE_HVY
+            - DRIVE_COM
+        - name: TNCTRANSIT
+          coefficient: coef_nest_TRANSIT_TNC
+          alternatives:
+            - name: TNC_SINGLE_TRANSIT
+              coefficient: coef_nest_TRANSIT_TNC_SINGLE
               alternatives:
-                - DRIVEALONEFREE
-                - DRIVEALONEPAY
-            - name: SHAREDRIDE2
-              coefficient: coef_nest_AUTO_SHAREDRIDE2
+                - TNC_SINGLE_TRANSIT_UBER
+                - TNC_SINGLE_TRANSIT_LYFT
+                - TNC_SINGLE_TRANSIT_CRUISE
+            - name: TNC_SHARED_TRANSIT
+              coefficient: coef_nest_TRANSIT_TNC_SHARED
               alternatives:
-                - SHARED2FREE
-                - SHARED2PAY
-            - name: SHAREDRIDE3
-              coefficient: coef_nest_AUTO_SHAREDRIDE3
-              alternatives:
-                - SHARED3FREE
-                - SHARED3PAY
-      - name: NONMOTORIZED
-        coefficient: coef_nest_NONMOTORIZED
-        alternatives:
-          - WALK
-          - BIKE
-      - name: TRANSIT
-        coefficient:  coef_nest_TRANSIT
-        alternatives:
-            - name: WALKACCESS
-              coefficient: coef_nest_TRANSIT_WALKACCESS
-              alternatives:
-              - WALK_LOC
-              - WALK_LRF
-              - WALK_EXP
-              - WALK_HVY
-              - WALK_COM
-            - name: DRIVEACCESS
-              coefficient: coef_nest_TRANSIT_DRIVEACCESS
-              alternatives:
-              - DRIVE_LOC
-              - DRIVE_LRF
-              - DRIVE_EXP
-              - DRIVE_HVY
-              - DRIVE_COM
-      - name: RIDEHAIL
-        coefficient: coef_nest_RIDEHAIL
-        alternatives:
-          - name: TNC_SINGLE
-            coefficient: coef_nest_RIDEHAIL_SINGLE
-            alternatives:
-              - SINGLE_UBER
-              - SINGLE_LYFT
-              - SINGLE_CRUISE
-          - name: TNC_SHARED
-            coefficient: coef_nest_RIDEHAIL_SHARED
-            alternatives:
-              - SHARED_UBER
-              - SHARED_LYFT
-              - SHARED_CRUISE
+                - TNC_SHARED_TRANSIT_UBER
+                - TNC_SHARED_TRANSIT_LYFT
+                - TNC_SHARED_TRANSIT_CRUISE
+    - name: RIDEHAIL
+      coefficient: coef_nest_RIDEHAIL
+      alternatives:
+        - name: TNC_SINGLE
+          coefficient: coef_nest_RIDEHAIL_SINGLE
+          alternatives:
+            - SINGLE_UBER
+            - SINGLE_LYFT
+            - SINGLE_CRUISE
+        - name: TNC_SHARED
+          coefficient: coef_nest_RIDEHAIL_SHARED
+          alternatives:
+            - SHARED_UBER
+            - SHARED_LYFT
+            - SHARED_CRUISE
 
 SPEC: tour_mode_choice.csv
 COEFFICIENTS: tour_mode_choice_coeffs.csv
@@ -69,165 +84,167 @@ COEFFICIENT_TEMPLATE: tour_mode_choice_coeffs_template.csv
 
 CONSTANTS:
     #valueOfTime: 8.00
-    costPerMile: 18.29
-    costShareSr2: 1.75
-    costShareSr3: 2.50
-    waitThresh: 10.00
-    walkThresh: 1.50
-    shortWalk: 0.333
-    longWalk: 0.667
-    walkSpeed: 3.00
-    bikeThresh: 6.00
-    bikeSpeed: 12.00
-    maxCbdAreaTypeThresh: 2
-    indivTour: 1.00000
-    upperEA: 5
-    upperAM: 10
-    upperMD: 15
-    upperPM: 19
+  costPerMile: 18.29
+  costShareSr2: 1.75
+  costShareSr3: 2.50
+  waitThresh: 10.00
+  walkThresh: 1.50
+  shortWalk: 0.333
+  longWalk: 0.667
+  walkSpeed: 3.00
+  bikeThresh: 6.00
+  bikeSpeed: 12.00
+  maxCbdAreaTypeThresh: 2
+  indivTour: 1.00000
+  upperEA: 5
+  upperAM: 10
+  upperMD: 15
+  upperPM: 19
     # RIDEHAIL Settings
-    Taxi_baseFare: 2.20
-    Taxi_costPerMile: 2.30
-    Taxi_costPerMinute: 0.10
-    Taxi_waitTime_mean:
-      1: 5.5
-      2: 9.5
-      3: 13.3
-      4: 17.3
-      5: 26.5
-    Taxi_waitTime_sd: 
-      1: 0
-      2: 0
-      3: 0
-      4: 0
-      5: 0
-    TNC_single_uber_baseFare: 4.77
-    TNC_single_uber_costPerMile: 1.07
-    TNC_single_uber_costPerMinute: 0.28
-    TNC_single_uber_costMinimum: 7.20
-    TNC_single_uber_waitTime_mean:
-      1: 3.0
-      2: 6.3
-      3: 8.4
-      4: 8.5
-      5: 10.3
-    TNC_single_uber_waitTime_sd:
-      1: 0
-      2: 0
-      3: 0
-      4: 0
-      5: 0
-    TNC_single_lyft_baseFare: 4.77
-    TNC_single_lyft_costPerMile: 1.07
-    TNC_single_lyft_costPerMinute: 0.28
-    TNC_single_lyft_costMinimum: 7.20
-    TNC_single_lyft_waitTime_mean:
-        1: 3.0
-        2: 6.3
-        3: 8.4
-        4: 8.5
-        5: 10.3
-    TNC_single_lyft_waitTime_sd:
-        1: 0
-        2: 0
-        3: 0
-        4: 0
-        5: 0
-    TNC_single_cruise_baseFare: 3.82
-    TNC_single_cruise_costPerMile: 0.85
-    TNC_single_cruise_costPerMinute: 0.22
-    TNC_single_cruise_costMinimum: 5.75
-    TNC_single_cruise_waitTime_mean:
-      1: 3.0
-      2: 6.3
-      3: 8.4
-      4: 8.5
-      5: 10.3
-    TNC_single_cruise_waitTime_sd:
-        1: 0
-        2: 0
-        3: 0
-        4: 0
-        5: 0
-    TNC_shared_uber_baseFare: 3.59
-    TNC_shared_uber_costPerMile: 0.75
-    TNC_shared_uber_costPerMinute: 0.08
-    TNC_shared_uber_costMinimum: 3.00
-    TNC_shared_uber_IVTFactor: 1.5
-    TNC_shared_uber_waitTime_mean:
-      1: 5.0
-      2: 8.0
-      3: 11.0
-      4: 15.0
-      5: 15.0
-    TNC_shared_uber_waitTime_sd:
-      1: 0
-      2: 0
-      3: 0
-      4: 0
-      5: 0
-    TNC_shared_lyft_baseFare: 3.59
-    TNC_shared_lyft_costPerMile: 0.75
-    TNC_shared_lyft_costPerMinute: 0.08
-    TNC_shared_lyft_costMinimum: 3.00
-    TNC_shared_lyft_IVTFactor: 1.5
-    TNC_shared_lyft_waitTime_mean:
-      1: 5.0
-      2: 8.0
-      3: 11.0
-      4: 15.0
-      5: 15.0
-    TNC_shared_lyft_waitTime_sd:
-      1: 0
-      2: 0
-      3: 0
-      4: 0
-      5: 0
-    TNC_shared_cruise_baseFare: 2.87
-    TNC_shared_cruise_costPerMile: 0.60
-    TNC_shared_cruise_costPerMinute: 0.07
-    TNC_shared_cruise_costMinimum: 2.40
-    TNC_shared_cruise_IVTFactor: 1.5
-    TNC_shared_cruise_waitTime_mean:
-      1: 5.0
-      2: 8.0
-      3: 11.0
-      4: 15.0
-      5: 15.0
-    TNC_shared_cruise_waitTime_sd:
-      1: 0
-      2: 0
-      3: 0
-      4: 0
-      5: 0
-    min_waitTime: 0
-    max_waitTime: 50
-    TNC_missed_trip_penalty: 75
-    SAV_ASC: -2.0
+  Taxi_baseFare: 2.20
+  Taxi_costPerMile: 2.30
+  Taxi_costPerMinute: 0.10
+  Taxi_waitTime_mean:
+    1: 5.5
+    2: 9.5
+    3: 13.3
+    4: 17.3
+    5: 26.5
+  Taxi_waitTime_sd:
+    1: 0
+    2: 0
+    3: 0
+    4: 0
+    5: 0
+  TNC_single_uber_baseFare: 4.77
+  TNC_single_uber_costPerMile: 1.07
+  TNC_single_uber_costPerMinute: 0.28
+  TNC_single_uber_costMinimum: 7.20
+  TNC_single_uber_waitTime_mean:
+    1: 3.0
+    2: 6.3
+    3: 8.4
+    4: 8.5
+    5: 10.3
+  TNC_single_uber_waitTime_sd:
+    1: 0
+    2: 0
+    3: 0
+    4: 0
+    5: 0
+  TNC_single_lyft_baseFare: 4.77
+  TNC_single_lyft_costPerMile: 1.07
+  TNC_single_lyft_costPerMinute: 0.28
+  TNC_single_lyft_costMinimum: 7.20
+  TNC_single_lyft_waitTime_mean:
+    1: 3.0
+    2: 6.3
+    3: 8.4
+    4: 8.5
+    5: 10.3
+  TNC_single_lyft_waitTime_sd:
+    1: 0
+    2: 0
+    3: 0
+    4: 0
+    5: 0
+  TNC_single_cruise_baseFare: 3.82
+  TNC_single_cruise_costPerMile: 0.86
+  TNC_single_cruise_costPerMinute: 0.22
+  TNC_single_cruise_costMinimum: 5.75
+  TNC_single_cruise_waitTime_mean:
+    1: 3.0
+    2: 6.3
+    3: 8.4
+    4: 8.5
+    5: 10.3
+  TNC_single_cruise_waitTime_sd:
+    1: 0
+    2: 0
+    3: 0
+    4: 0
+    5: 0
+  TNC_shared_uber_baseFare: 3.59
+  TNC_shared_uber_costPerMile: 0.75
+  TNC_shared_uber_costPerMinute: 0.08
+  TNC_shared_uber_costMinimum: 3.00
+  TNC_shared_uber_IVTFactor: 1.0
+  TNC_shared_uber_waitTime_mean:
+    1: 5.0
+    2: 8.0
+    3: 11.0
+    4: 15.0
+    5: 15.0
+  TNC_shared_uber_waitTime_sd:
+    1: 0
+    2: 0
+    3: 0
+    4: 0
+    5: 0
+  TNC_shared_lyft_baseFare: 3.59
+  TNC_shared_lyft_costPerMile: 0.75
+  TNC_shared_lyft_costPerMinute: 0.08
+  TNC_shared_lyft_costMinimum: 3.00
+  TNC_shared_lyft_IVTFactor: 1.0
+  TNC_shared_lyft_waitTime_mean:
+    1: 5.0
+    2: 8.0
+    3: 11.0
+    4: 15.0
+    5: 15.0
+  TNC_shared_lyft_waitTime_sd:
+    1: 0
+    2: 0
+    3: 0
+    4: 0
+    5: 0
+  TNC_shared_cruise_baseFare: 2.87
+  TNC_shared_cruise_costPerMile: 0.60
+  TNC_shared_cruise_costPerMinute: 0.07
+  TNC_shared_cruise_costMinimum: 2.40
+  TNC_shared_cruise_IVTFactor: 1.0
+  TNC_shared_cruise_waitTime_mean:
+    1: 5.0
+    2: 8.0
+    3: 11.0
+    4: 15.0
+    5: 15.0
+  TNC_shared_cruise_waitTime_sd:
+    1: 0
+    2: 0
+    3: 0
+    4: 0
+    5: 0
+  min_waitTime: 0
+  max_waitTime: 50
+  TNC_missed_trip_penalty: 75
+  SAV_ASC: -2.0
+  TNC_cruise_operating_zones: [1, 3, 5, 12, 13, 15, 18, 20, 23, 2, 4, 10, 11, 14, 16, 17, 19, 21, 22, 108, 109, 110, 41, 39, 37, 35, 33, 28, 25, 24, 29, 6, 30, 8, 51, 44, 46, 71, 48, 75, 72, 74, 40, 38, 36, 34, 32, 27, 26, 31, 7, 9, 43, 50, 185, 69, 77, 78, 80, 87, 84, 82, 89, 107, 42, 93, 103, 101, 99, 95, 97, 129, 130, 111, 112, 116, 117, 120, 139, 143, 144, 145, 148, 121, 123, 125, 134, 137, 138, 152, 160, 165, 164, 163, 153, 156, 91, 175, 173, 172, 171, 170, 169, 133, 168, 167, 184, 186, 179, 180, 182, 45, 49, 47, 73, 70, 68, 86, 76, 79, 85, 88, 81, 83, 106, 105, 104, 94, 102, 100, 98, 96, 128, 127, 114, 113, 115, 118, 119, 141, 140, 147, 150, 122, 124, 126, 151, 135, 136, 161, 162, 159, 155, 154, 90, 176, 174, 92, 131, 132, 166, 177, 178, 142, 187, 188, 189, 181, 183, 66, 62, 57, 64, 60, 54, 52, 53, 190, 157, 146, 65, 58, 67, 63, 61, 59, 55, 56, 158, 149]
 
-    ivt_cost_multiplier: 0.6
-    ivt_lrt_multiplier: 0.9
-    ivt_ferry_multiplier: 0.8
-    ivt_exp_multiplier: 1
-    ivt_hvy_multiplier: 0.8
-    ivt_com_multiplier: 0.7
-    walktimeshort_multiplier: 2
-    walktimelong_multiplier: 10
-    biketimeshort_multiplier: 4
-    biketimelong_multiplier: 20
-    short_i_wait_multiplier: 2
-    long_i_wait_multiplier: 1
-    wacc_multiplier: 2
-    wegr_multiplier: 2
-    waux_multiplier: 2
-    dtim_multiplier: 2
-    xwait_multiplier: 2
-    dacc_ratio: 0
-    xfers_wlk_multiplier: 10
-    xfers_drv_multiplier: 20
-    drvtrn_distpen_0_multiplier: 270
-    drvtrn_distpen_max: 15
-    density_index_multiplier: -0.2
+  ivt_cost_multiplier: 0.6
+  ivt_lrt_multiplier: 0.9
+  ivt_ferry_multiplier: 0.8
+  ivt_exp_multiplier: 1
+  ivt_hvy_multiplier: 0.8
+  ivt_com_multiplier: 0.7
+  walktimeshort_multiplier: 2
+  walktimelong_multiplier: 10
+  biketimeshort_multiplier: 4
+  biketimelong_multiplier: 20
+  short_i_wait_multiplier: 2
+  long_i_wait_multiplier: 1
+  wacc_multiplier: 2
+  wegr_multiplier: 2
+  waux_multiplier: 2
+  dtim_multiplier: 2
+  xwait_multiplier: 2
+  dacc_ratio: 0
+  xfers_wlk_multiplier: 10
+  xfers_drv_multiplier: 20
+  drvtrn_distpen_0_multiplier: 270
+  drvtrn_distpen_max: 15
+  density_index_multiplier: -0.2
+
 #    joint_sr2_ASC_no_auto: 0
 #    joint_sr2_ASC_auto_deficient: 0
 #    joint_sr2_ASC_auto_sufficient: 0
@@ -261,6 +278,5 @@ LOGSUM_CHOOSER_COLUMNS:
   - num_workers
   - value_of_time
   - free_parking_at_work
-
 
 MODE_CHOICE_LOGSUM_COLUMN_NAME: mode_choice_logsum

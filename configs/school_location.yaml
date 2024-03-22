@@ -24,7 +24,7 @@ SPEC: school_location.csv
 COEFFICIENTS: school_location_coeffs.csv
 
 LOGSUM_SETTINGS: tour_mode_choice.yaml
-LOGSUM_PREPROCESSOR: nontour_preprocessor
+LOGSUM_PREPROCESSOR: preprocessor
 
 LOGSUM_TOUR_PURPOSE:
   university: univ
