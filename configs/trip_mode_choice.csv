@@ -445,7 +445,7 @@ TNC Shared CRUISE - In-vehicle time,@c_ivt * odt_skims['TNC_SHARED_CRUISE_TOTIVT
 TNC Shared CRUISE - Wait time,@c_ivt  * 1.5 * df.origSharedTNCCruiseWaitTime,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,1
 TNC Shared CRUISE - Tolls,@df.c_cost * odt_skims['HOV2TOLL_VTOLL'],,,,,,,,,,,,,,,,,,,,,,,,,,,,,,1
 TNC Shared CRUISE - Bridge toll,@df.c_cost * odt_skims['HOV2TOLL_BTOLL'],,,,,,,,,,,,,,,,,,,,,,,,,,,,,,1
-TNC Shared CRUISE - Cost,@df.c_cost * np.maximum(TNC_shared_cruise_baseFare + odt_skims['TNC_SHARED_CRUISE_DDIST'] * TNC_shared_cruise_costPerMile + odt_skims['TNC_SHARED_CRUISE_TOTIVT']* TNC_shared_cruise_costPerMinute, TNC_shared_cruise_costMinimum) * 100,,,,,,,,,,,,,,,,,,,,,,,,,,,,,1
+TNC Shared CRUISE - Cost,"@df.c_cost * np.maximum(TNC_shared_cruise_baseFare + odt_skims['TNC_SHARED_CRUISE_DDIST'] * TNC_shared_cruise_costPerMile + odt_skims['TNC_SHARED_CRUISE_TOTIVT']* TNC_shared_cruise_costPerMinute, TNC_shared_cruise_costMinimum) * 100",,,,,,,,,,,,,,,,,,,,,,,,,,,,,1
 TNC Shared CRUISE - SAV ASC,@SAV_ASC,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,1
 #,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 Auto tour mode availability,tour_mode_is_auto,,,,,,,,-999,-999,-999,-999,-999,-999,-999,-999,-999,-999,-999,-999,-999,-999,-999,-999,-999,,,,,,
