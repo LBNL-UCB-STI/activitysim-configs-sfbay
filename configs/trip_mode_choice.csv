@@ -369,6 +369,7 @@ TNC Shared UBER Transit - Transit fare,@df.c_cost * (odt_skims['TNC_SHARED_TRANS
 TNC Shared UBER Transit  - Destination zone densityIndex,@c_density_index * df.density_index,,,,,,,,,,,,,,,,,,,,,,1,,,,,,,,
 TNC Shared UBER Transit  - Topology,@c_topology_trn * df.trip_topology,,,,,,,,,,,,,,,,,,,,,,1,,,,,,,,
 TNC Shared UBER Transit  - Person is less than 10 years old,@c_age010_trn*(df.age < 10),,,,,,,,,,,,,,,,,,,,,,1,,,,,,,,
+TNC Shared UBER Transit  - Pool ASC,@Pool_ASC,,,,,,,,,,,,,,,,,,,,,,1,,,,,,,,
 # TNC Shared LYFT Transit,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 TNC Shared LYFT Transit - Unavailable,tnc_shared_transit_lyft_available == False,,,,,,,,,,,,,,,,,,,,,,,-999,,,,,,,
 TNC Shared LYFT Transit - In-vehicle time,@c_ivt*(odt_skims['TNC_SHARED_TRANSIT_LYFT_TOTIVT']),,,,,,,,,,,,,,,,,,,,,,,1,,,,,,,
@@ -385,6 +386,7 @@ TNC Shared LYFT Transit - Transit fare,@df.c_cost * (odt_skims['TNC_SHARED_TRANS
 TNC Shared LYFT Transit  - Destination zone densityIndex,@c_density_index * df.density_index,,,,,,,,,,,,,,,,,,,,,,,1,,,,,,,
 TNC Shared LYFT Transit  - Topology,@c_topology_trn * df.trip_topology,,,,,,,,,,,,,,,,,,,,,,,1,,,,,,,
 TNC Shared LYFT Transit  - Person is less than 10 years old,@c_age010_trn*(df.age < 10),,,,,,,,,,,,,,,,,,,,,,,1,,,,,,,
+TNC Shared LYFT Transit  - Pool ASC,@Pool_ASC,,,,,,,,,,,,,,,,,,,,,,,1,,,,,,,
 # TNC Shared CRUISE Transit,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 TNC Shared CRUISE Transit - Unavailable,tnc_shared_transit_cruise_available == False,,,,,,,,,,,,,,,,,,,,,,,,-999,,,,,,
 TNC Shared CRUISE Transit - In-vehicle time,@c_ivt*(odt_skims['TNC_SHARED_TRANSIT_CRUISE_TOTIVT']),,,,,,,,,,,,,,,,,,,,,,,,1,,,,,,
@@ -402,6 +404,7 @@ TNC Shared CRUISE Transit  - Destination zone densityIndex,@c_density_index * df
 TNC Shared CRUISE Transit  - Topology,@c_topology_trn * df.trip_topology,,,,,,,,,,,,,,,,,,,,,,,,1,,,,,,
 TNC Shared CRUISE Transit  - Person is less than 10 years old,@c_age010_trn*(df.age < 10),,,,,,,,,,,,,,,,,,,,,,,,1,,,,,,
 TNC Single CRUISE Transit - SAV ASC,@SAV_ASC,,,,,,,,,,,,,,,,,,,,,,,,1,,,,,,
+TNC Single CRUISE Transit - Pool ASC,@Pool_ASC,,,,,,,,,,,,,,,,,,,,,,,,1,,,,,,
 #TNC Single UBER,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 TNC Single UBER - In-vehicle time,@c_ivt * odt_skims['TNC_SINGLE_UBER_TOTIVT'] ,,,,,,,,,,,,,,,,,,,,,,,,,1,,,,,
 TNC Single UBER - Wait time,@c_ivt * 1.5 * df.origSingleTNCUberWaitTime,,,,,,,,,,,,,,,,,,,,,,,,,1,,,,,
@@ -428,12 +431,14 @@ TNC Shared UBER - Wait time,@c_ivt  * 1.5 * df.origSharedTNCUberWaitTime,,,,,,,,
 TNC Shared UBER - Tolls,@df.c_cost * odt_skims['HOV2TOLL_VTOLL'],,,,,,,,,,,,,,,,,,,,,,,,,,,,1,,
 TNC Shared UBER - Bridge toll,@df.c_cost * odt_skims['HOV2TOLL_BTOLL'],,,,,,,,,,,,,,,,,,,,,,,,,,,,1,,
 TNC Shared UBER - Cost,"@df.c_cost * np.maximum(TNC_shared_uber_baseFare + odt_skims['TNC_SHARED_UBER_DDIST'] * TNC_shared_uber_costPerMile + odt_skims['TNC_SHARED_UBER_TOTIVT']* TNC_shared_uber_costPerMinute, TNC_shared_uber_costMinimum) * 100",,,,,,,,,,,,,,,,,,,,,,,,,,,,1,,
+TNC Shared UBER - Pool ASC,@Pool_ASC,,,,,,,,,,,,,,,,,,,,,,,,,,,,1,,
 #TNC Shared LYFT,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 TNC Shared LYFT - In-vehicle time,@c_ivt * odt_skims['TNC_SHARED_LYFT_TOTIVT'] * TNC_shared_lyft_IVTFactor,,,,,,,,,,,,,,,,,,,,,,,,,,,,,1,
 TNC Shared LYFT - Wait time,@c_ivt  * 1.5 * df.origSharedTNCLyftWaitTime,,,,,,,,,,,,,,,,,,,,,,,,,,,,,1,
 TNC Shared LYFT - Tolls,@df.c_cost * odt_skims['HOV2TOLL_VTOLL'],,,,,,,,,,,,,,,,,,,,,,,,,,,,,1,
 TNC Shared LYFT - Bridge toll,@df.c_cost * odt_skims['HOV2TOLL_BTOLL'],,,,,,,,,,,,,,,,,,,,,,,,,,,,,1,
 TNC Shared LYFT - Cost,"@df.c_cost * np.maximum(TNC_shared_lyft_baseFare + odt_skims['TNC_SHARED_LYFT_DDIST'] * TNC_shared_lyft_costPerMile + odt_skims['TNC_SHARED_LYFT_TOTIVT']* TNC_shared_lyft_costPerMinute, TNC_shared_lyft_costMinimum) * 100",,,,,,,,,,,,,,,,,,,,,,,,,,,,,1,
+TNC Shared LYFT - Pool ASC,@Pool_ASC,,,,,,,,,,,,,,,,,,,,,,,,,,,,,1,
 #TNC Shared CRUISE,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 TNC Shared CRUISE - Unavailable,TNC_cruise_available == False,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,-999
 TNC Shared CRUISE - In-vehicle time,@c_ivt * odt_skims['TNC_SHARED_CRUISE_TOTIVT'] * TNC_shared_cruise_IVTFactor,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,1
@@ -442,6 +447,7 @@ TNC Shared CRUISE - Tolls,@df.c_cost * odt_skims['HOV2TOLL_VTOLL'],,,,,,,,,,,,,,
 TNC Shared CRUISE - Bridge toll,@df.c_cost * odt_skims['HOV2TOLL_BTOLL'],,,,,,,,,,,,,,,,,,,,,,,,,,,,,,1
 TNC Shared CRUISE - Cost,"@df.c_cost * np.maximum(TNC_shared_cruise_baseFare + odt_skims['TNC_SHARED_CRUISE_DDIST'] * TNC_shared_cruise_costPerMile + odt_skims['TNC_SHARED_CRUISE_TOTIVT']* TNC_shared_cruise_costPerMinute, TNC_shared_cruise_costMinimum) * 100",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,1
 TNC Shared CRUISE - SAV ASC,@SAV_ASC,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,1
+TNC Shared CRUISE - Pool ASC,@Pool_ASC,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,1
 #,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 Auto tour mode availability,tour_mode_is_auto,,,,,,,,-999,-999,-999,-999,-999,-999,-999,-999,-999,-999,-999,-999,-999,-999,-999,-999,-999,,,,,,
 Walk tour mode availability,tour_mode_is_walk,-999,-999,-999,-999,-999,-999,,-999,-999,-999,-999,-999,-999,-999,-999,-999,-999,-999,,,,,,,,,,,,
