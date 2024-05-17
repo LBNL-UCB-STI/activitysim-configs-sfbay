@@ -70,6 +70,7 @@ util_SHARED3PAY_Two_person_household,SHARED3PAY - Two person household,@(df.hhsi
 util_SHARED3PAY_Person_is_16_years_old_or_older,SHARED3PAY - Person is 16 years old or older,@(df.age >= 16),,,,,,coef_age16p_sr_multiplier,,,,,,,,,,,,,,,,,,,,
 #,Walk,,,,,,,,,,,,,,,,,,,,,,,,,,,
 #,FIXME - skims aren't symmetrical,so we have to make sure they can get back,,,,,,,,,,,,,,,,,,,,,,,,,,
+util_WALK_ASC_Delta,WALK - ASC Delta,@walk_asc_delta,,,,,,,1,,,,,,,,,,,,,,,,,,,
 util_WALK_Time_up_to_2_miles,WALK - Time up to 2 miles,@walktimeshort_discount * walktimeshort_multiplier * (od_skims['DISTWALK'].clip(upper=walkThresh) + od_skims.reverse('DISTWALK').clip(upper=walkThresh))*60/walkSpeed,,,,,,,coef_ivt,,,,,,,,,,,,,,,,,,,
 util_WALK_Time_beyond_2_of_a_miles,WALK - Time beyond 2 of a miles,@walktimelong_multiplier * ((od_skims['DISTWALK'] - walkThresh).clip(lower=0) + (od_skims.reverse('DISTWALK') - walkThresh).clip(lower=0))*60/walkSpeed,,,,,,,coef_ivt,,,,,,,,,,,,,,,,,,,
 util_WALK_Destination_zone_densityIndex,WALK - Destination zone densityIndex,@density_index_multiplier * df.density_index,,,,,,,coef_ivt,,,,,,,,,,,,,,,,,,,

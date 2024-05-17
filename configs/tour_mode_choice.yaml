@@ -220,6 +220,7 @@ CONSTANTS:
   walktimeshort_discount: 0.8
   transit_multiplier: 1.0
   transit_asc_delta: 0.0
+  walk_asc_delta: 0.0
 
   ivt_cost_multiplier: 0.6
   ivt_lrt_multiplier: 0.9
