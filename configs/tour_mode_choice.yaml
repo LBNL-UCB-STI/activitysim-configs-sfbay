@@ -70,13 +70,11 @@ NESTS:
           alternatives:
             - SINGLE_UBER
             - SINGLE_LYFT
-            - SINGLE_CRUISE
         - name: TNC_SHARED
           coefficient: coef_nest_RIDEHAIL_SHARED
           alternatives:
             - SHARED_UBER
             - SHARED_LYFT
-            - SHARED_CRUISE
 
 SPEC: tour_mode_choice.csv
 COEFFICIENTS: tour_mode_choice_coeffs.csv
