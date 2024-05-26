@@ -425,18 +425,12 @@ util_single_uber_Auto_sufficient,TNC Single - Auto sufficient,@(df.is_indiv & (d
 util_single_lyft_Zero_auto,TNC Single - Zero auto,@(df.is_indiv & (df.auto_ownership == 0)),,,,,,,,,,,,,,,,,,,,,,,,,,single_lyft_ASC_no_auto,,
 util_single_lyft_Auto_deficient,TNC Single - Auto deficient,@(df.is_indiv & (df.auto_ownership < df.num_workers) & (df.auto_ownership > 0)),,,,,,,,,,,,,,,,,,,,,,,,,,single_lyft_ASC_auto_deficient,,
 util_single_lyft_Auto_sufficient,TNC Single - Auto sufficient,@(df.is_indiv & (df.auto_ownership >= df.num_workers) & (df.auto_ownership > 0)),,,,,,,,,,,,,,,,,,,,,,,,,,single_lyft_ASC_auto_sufficient,,
-util_single_cruise_Zero_auto,TNC Single - Zero auto,@(df.is_indiv & (df.auto_ownership == 0)),,,,,,,,,,,,,,,,,,,,,,,,,,,,
-util_single_cruise_Auto_deficient,TNC Single - Auto deficient,@(df.is_indiv & (df.auto_ownership < df.num_workers) & (df.auto_ownership > 0)),,,,,,,,,,,,,,,,,,,,,,,,,,,,
-util_single_cruise_Auto_sufficient,TNC Single - Auto sufficient,@(df.is_indiv & (df.auto_ownership >= df.num_workers) & (df.auto_ownership > 0)),,,,,,,,,,,,,,,,,,,,,,,,,,,,
 util_shared_uber_Zero_auto,TNC Shared - Zero auto,@(df.is_indiv & (df.auto_ownership == 0)),,,,,,,,,,,,,,,,,,,,,,,,,,,shared_uber_ASC_no_auto,
 util_shared_uber_Auto_deficient,TNC Shared - Auto deficient,@(df.is_indiv & (df.auto_ownership < df.num_workers) & (df.auto_ownership > 0)),,,,,,,,,,,,,,,,,,,,,,,,,,,shared_uber_ASC_auto_deficient,
 util_shared_uber_Auto_sufficient,TNC Shared - Auto sufficient,@(df.is_indiv & (df.auto_ownership >= df.num_workers) & (df.auto_ownership > 0)),,,,,,,,,,,,,,,,,,,,,,,,,,,shared_uber_ASC_auto_sufficient,
 util_shared_lyft_Zero_auto,TNC Shared - Zero auto,@(df.is_indiv & (df.auto_ownership == 0)),,,,,,,,,,,,,,,,,,,,,,,,,,,,shared_lyft_ASC_no_auto
 util_shared_lyft_Auto_deficient,TNC Shared - Auto deficient,@(df.is_indiv & (df.auto_ownership < df.num_workers) & (df.auto_ownership > 0)),,,,,,,,,,,,,,,,,,,,,,,,,,,,shared_lyft_ASC_auto_deficient
 util_shared_lyft_Auto_sufficient,TNC Shared - Auto sufficient,@(df.is_indiv & (df.auto_ownership >= df.num_workers) & (df.auto_ownership > 0)),,,,,,,,,,,,,,,,,,,,,,,,,,,,shared_lyft_ASC_auto_sufficient
-util_shared_cruise_Zero_auto,TNC Shared - Zero auto,@(df.is_indiv & (df.auto_ownership == 0)),,,,,,,,,,,,,,,,,,,,,,,,,,,,
-util_shared_cruise_Auto_deficient,TNC Shared - Auto deficient,@(df.is_indiv & (df.auto_ownership < df.num_workers) & (df.auto_ownership > 0)),,,,,,,,,,,,,,,,,,,,,,,,,,,,
-util_shared_cruise_Auto_sufficient,TNC Shared - Auto sufficient,@(df.is_indiv & (df.auto_ownership >= df.num_workers) & (df.auto_ownership > 0)),,,,,,,,,,,,,,,,,,,,,,,,,,,,
 #,joint tour ASCs,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 util_Joint_Walk_ASC_Zero_auto,Joint - Walk ASC - Zero auto,@(df.is_joint & (df.auto_ownership == 0)),,,,,,,joint_walk_ASC_no_auto,,,,,,,,,,,,,,,,,,,,,
 util_Joint_Walk_ASC_Auto_deficient,Joint - Walk ASC - Auto deficient,@(df.is_joint & (df.auto_ownership < df.num_workers) & (df.auto_ownership > 0)),,,,,,,joint_walk_ASC_auto_deficient,,,,,,,,,,,,,,,,,,,,,
