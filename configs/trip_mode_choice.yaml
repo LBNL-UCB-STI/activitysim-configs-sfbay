@@ -63,7 +63,6 @@ NESTS:
                   alternatives:
                     - TNC_SHARED_TRANSIT_UBER
                     - TNC_SHARED_TRANSIT_LYFT
-                    - TNC_SHARED_TRANSIT_CRUISE
       - name: RIDEHAIL
         coefficient: 0.36
         alternatives:
@@ -78,7 +77,6 @@ NESTS:
             alternatives:
               - SHARED_UBER
               - SHARED_LYFT
-              - SHARED_CRUISE
 
 CONSTANTS:
   orig_col_name: origin
@@ -140,10 +138,10 @@ CONSTANTS:
   I_DRIVE_TRANSIT_MODES: [14, 15, 16, 17, 18]
   I_TNC_TRANSIT_MODES: [19,20,21,22,23,24]
   I_TNC_SINGLE_TRANSIT_MODES: [19,20,21]
-  I_TNC_SHARED_TRANSIT_MODES: [22,23,24]
-  I_RIDE_HAIL_MODES: [25,26,27,28,29,30]
-  I_RIDEHAIL_SINGLE_MODES: [25,26,27]
-  I_RIDEHAIL_SHARED_MODES: [28,29,30]
+  I_TNC_SHARED_TRANSIT_MODES: [22,23]
+  I_RIDE_HAIL_MODES: [24,25,26,27,28]
+  I_RIDEHAIL_SINGLE_MODES: [24,25,26]
+  I_RIDEHAIL_SHARED_MODES: [27,28]
   # RIDEHAIL Settings
   Taxi_baseFare: 2.20
   Taxi_costPerMile: 2.30

@@ -61,7 +61,6 @@ NESTS:
               alternatives:
                 - TNC_SHARED_TRANSIT_UBER
                 - TNC_SHARED_TRANSIT_LYFT
-                - TNC_SHARED_TRANSIT_CRUISE
     - name: RIDEHAIL
       coefficient: coef_nest_RIDEHAIL
       alternatives:
@@ -76,7 +75,6 @@ NESTS:
           alternatives:
             - SHARED_UBER
             - SHARED_LYFT
-            - SHARED_CRUISE
 
 SPEC: tour_mode_choice.csv
 COEFFICIENTS: tour_mode_choice_coeffs.csv
