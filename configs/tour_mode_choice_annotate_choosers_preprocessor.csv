@@ -111,7 +111,7 @@ local,_DF_IS_TOUR,'tour_type' in df.columns,
 ,TNC_cruise_available,(df[dest_col_name].isin(TNC_cruise_operating_zones)) & (df[orig_col_name].isin(TNC_cruise_operating_zones)),
 ,tnc_single_transit_uber_available,(odt_skims['TNC_SINGLE_TRANSIT_UBER_TOTIVT']>0) & (dot_skims['TNC_SINGLE_TRANSIT_UBER_TOTIVT']>0) & (odt_skims['TNC_SINGLE_TRANSIT_UBER_KEYIVT']>0) & (dot_skims['TNC_SINGLE_TRANSIT_UBER_KEYIVT']>0),
 ,tnc_single_transit_lyft_available,(odt_skims['TNC_SINGLE_TRANSIT_LYFT_TOTIVT']>0) & (dot_skims['TNC_SINGLE_TRANSIT_LYFT_TOTIVT']>0) & (odt_skims['TNC_SINGLE_TRANSIT_LYFT_KEYIVT']>0) & (dot_skims['TNC_SINGLE_TRANSIT_LYFT_KEYIVT']>0),
-,tnc_single_transit_cruise_available,(df[DESTINATION].isin(TNC_cruise_operating_zones)) | (df[ORIGIN].isin(TNC_cruise_operating_zones)) & (odt_skims['TNC_SINGLE_TRANSIT_CRUISE_TOTIVT']>0)&(odt_skims['TNC_SINGLE_TRANSIT_CRUISE_KEYIVT']>0)
+,tnc_single_transit_cruise_available,(df[dest_col_name].isin(TNC_cruise_operating_zones)) | (df[orig_col_name].isin(TNC_cruise_operating_zones)) & (odt_skims['TNC_SINGLE_TRANSIT_CRUISE_TOTIVT']>0)&(odt_skims['TNC_SINGLE_TRANSIT_CRUISE_KEYIVT']>0)
 #, Note to ask Jessica about how we want to define cruise->transit availability,,
 ,tnc_shared_transit_uber_available,(odt_skims['TNC_SHARED_TRANSIT_UBER_TOTIVT']>0) & (dot_skims['TNC_SHARED_TRANSIT_UBER_TOTIVT']>0) & (odt_skims['TNC_SHARED_TRANSIT_UBER_KEYIVT']>0) & (dot_skims['TNC_SHARED_TRANSIT_UBER_KEYIVT']>0),
 ,tnc_shared_transit_lyft_available,(odt_skims['TNC_SHARED_TRANSIT_LYFT_TOTIVT']>0) & (dot_skims['TNC_SHARED_TRANSIT_LYFT_TOTIVT']>0) & (odt_skims['TNC_SHARED_TRANSIT_LYFT_KEYIVT']>0) & (dot_skims['TNC_SHARED_TRANSIT_LYFT_KEYIVT']>0),
