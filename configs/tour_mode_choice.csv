@@ -362,6 +362,7 @@ util_SINGLE_LYFT_Tolls,TNC Single LYFT - Tolls,@ivt_cost_multiplier * df.ivot * 
 util_SINGLE_LYFT_Bridge_toll,TNC Single LYFT - Bridge toll,@ivt_cost_multiplier * df.ivot * (odt_skims['HOV2TOLL_BTOLL'] + odr_skims['HOV2TOLL_BTOLL'] + dot_skims['HOV2TOLL_BTOLL'] + dor_skims['HOV2TOLL_BTOLL']),,,,,,,,,,,,,,,,,,,,,,,,,coef_ivt,,,
 util_SINGLE_LYFT_Cost,TNC Single LYFT - Cost,"@ivt_cost_multiplier * df.ivot * np.maximum(TNC_single_lyft_baseFare * 2 + (odt_skims['TNC_SINGLE_LYFT_DDIST'] + dot_skims['TNC_SINGLE_LYFT_DDIST']) * TNC_single_lyft_costPerMile + (odt_skims['TNC_SINGLE_LYFT_TOTIVT']+dot_skims['TNC_SINGLE_LYFT_TOTIVT']) * TNC_single_lyft_costPerMinute, TNC_single_lyft_costMinimum) * 100",,,,,,,,,,,,,,,,,,,,,,,,,coef_ivt,,,
 #,TNC Single CRUISE,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+util_SINGLE_CRUISE_Unavailable,TNC Single CRUISE - Unavailable,TNC_cruise_available == False,,,,,,,,,,,,,,,,,,,,,,,,,,-999,,
 util_SINGLE_CRUISE_In_vehicle_time,TNC Single CRUISE - In-vehicle time,@(odt_skims['TNC_SINGLE_CRUISE_TOTIVT']+dot_skims['TNC_SINGLE_CRUISE_TOTIVT']),,,,,,,,,,,,,,,,,,,,,,,,,,coef_ivt,,
 util_SINGLE_CRUISE_Wait_time,TNC Single CRUISE - Wait time,@1.5 * df.totalWaitSingleCRUISE,,,,,,,,,,,,,,,,,,,,,,,,,,coef_ivt,,
 util_SINGLE_CRUISE_Tolls,TNC Single CRUISE - Tolls,@ivt_cost_multiplier * df.ivot * (odt_skims['HOV2TOLL_VTOLL'] + dot_skims['HOV2TOLL_VTOLL']),,,,,,,,,,,,,,,,,,,,,,,,,,coef_ivt,,
