@@ -51,7 +51,6 @@ dest terminal time not counted at home,_dest_terminal_time,"np.where(inbound & l
 ,origSingleTNCCruiseWaitTime,odt_skims['TNC_SINGLE_CRUISE_WAIT'] * (1.0 - odt_skims['TNC_SINGLE_CRUISE_REJECTIONPROB']) + TNC_missed_trip_penalty * odt_skims['TNC_SINGLE_CRUISE_REJECTIONPROB']
 ,origSharedTNCUberWaitTime,odt_skims['TNC_SHARED_UBER_WAIT'] * (1.0 - odt_skims['TNC_SHARED_UBER_REJECTIONPROB']) + TNC_missed_trip_penalty * odt_skims['TNC_SHARED_UBER_REJECTIONPROB']
 ,origSharedTNCLyftWaitTime,odt_skims['TNC_SHARED_LYFT_WAIT'] * (1.0 - odt_skims['TNC_SHARED_LYFT_REJECTIONPROB']) + TNC_missed_trip_penalty * odt_skims['TNC_SHARED_LYFT_REJECTIONPROB']
-,,
 # TNC_Transit rejectionprobs,,
 ,origSingleTNCTransitUberWaitTime,(odt_skims['TNC_SINGLE_TRANSIT_UBER_IWAIT']) * (1.0 - odt_skims['TNC_SINGLE_TRANSIT_UBER_REJECTIONPROB']) + TNC_missed_trip_penalty * odt_skims['TNC_SINGLE_TRANSIT_UBER_REJECTIONPROB']
 ,origSingleTNCTransitLyftWaitTime,(odt_skims['TNC_SINGLE_TRANSIT_LYFT_IWAIT']) * (1.0 - odt_skims['TNC_SINGLE_TRANSIT_LYFT_REJECTIONPROB']) + TNC_missed_trip_penalty * odt_skims['TNC_SINGLE_TRANSIT_LYFT_REJECTIONPROB']
