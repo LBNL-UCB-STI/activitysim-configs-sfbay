@@ -238,10 +238,10 @@ CONSTANTS:
     3: 0
     4: 0
     5: 0
-  TNC_shared_cruise_baseFare: 2.87
-  TNC_shared_cruise_costPerMile: 0.60
-  TNC_shared_cruise_costPerMinute: 0.07
-  TNC_shared_cruise_costMinimum: 2.40
+  TNC_shared_cruise_baseFare: 2.30
+  TNC_shared_cruise_costPerMile: 0.48
+  TNC_shared_cruise_costPerMinute: 0.05
+  TNC_shared_cruise_costMinimum: 1.92
   TNC_shared_cruise_IVTFactor: 1.0
   TNC_shared_cruise_waitTime_mean:
     1: 5.0
