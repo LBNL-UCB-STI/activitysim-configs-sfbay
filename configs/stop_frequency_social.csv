@@ -40,7 +40,6 @@ Primary Destination Accessibility for outbound tours. Interaction,pracc,,,,,,,,,
 Primary Destination Accessibility for return tours. Interaction,pracc,,,,,,,,,,,,,,,,
 dummy for distance less than 20 Miles ,(distance_in_miles < 20),,,,,,,,,,,,,,,,
 dummy for distance in miles,distance_in_miles,,-0.01,-0.01,-0.01,-0.01,-0.01,-0.01,-0.01,-0.01,-0.01,-0.01,-0.01,-0.01,-0.01,-0.01,-0.01
-#distance in miles * Number of stops,distance_in_miles * @@numStopsAlt,,,,,,,,,,,,,,,,
 No stops if tour mode is driveTransit,tour_mode_is_drive_transit,,-999,-999,-999,-999,-999,-999,-999,-999,-999,-999,-999,-999,-999,-999,-999
 Alternative specific constant for outbound stops,~is_joint,,,,,-1.081,-1.081,-1.081,-1.081,-2.874,-2.874,-2.874,-2.874,-4.552,-4.552,-4.552,-4.552
 Alternative specific constant for return  stops,~is_joint,,-1.12,-2.764,-3.451,,-1.12,-2.764,-3.451,,-1.12,-2.764,-3.451,,-1.12,-2.764,-3.451
