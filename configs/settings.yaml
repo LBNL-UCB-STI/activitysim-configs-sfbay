@@ -15,6 +15,15 @@
 #
 
 inherit_settings: True
+sharrow: true
+chunk_training_mode: disabled
+recode_pipeline_columns: true
+households_sample_size: 275000
+num_processes: 55
+multiprocess: true
+
+
+# inherit_settings: True
 
 # input tables 
 input_table_list:
@@ -100,7 +109,7 @@ skims_file: skims.omx
 beam_geometries: clipped_tazs.csv
 
 # number of households to simulate
-households_sample_size:  250000
+# households_sample_size:  250000
 
 # raise error if any sub-process fails without waiting for others to complete
 fail_fast: True
@@ -168,9 +177,9 @@ keep_mem_logs: True
 ##############
 
 # multiprocessing controls
-multiprocess: True
+# multiprocess: True
 chunk_size: 200_000_000_000
-num_processes: 5
+# num_processes: 5
 stagger: 0
 
 # trace household id; comment out or leave empty for no trace
@@ -235,8 +244,6 @@ models:
   ### mp_summarize step
   - write_data_dictionary
   - track_skim_usage
-  - write_trip_matrices
-  - write_tables
   - summarize
 
 multiprocess_steps:
@@ -320,3 +327,5 @@ household_median_value_of_time:
   2: 8.81
   3: 10.44
   4: 12.86
+
+rng_base_seed: 355819560
