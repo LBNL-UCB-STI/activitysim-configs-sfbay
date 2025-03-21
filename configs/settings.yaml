@@ -16,6 +16,8 @@
 
 inherit_settings: True
 
+cleanup_pipeline_after_run: True
+
 # input tables 
 input_table_list:
   #
@@ -233,9 +235,6 @@ models:
   - trip_mode_choice
   - generate_beam_plans
   ### mp_summarize step
-  - write_data_dictionary
-  - track_skim_usage
-  - write_trip_matrices
   - write_tables
   - summarize
 
@@ -249,7 +248,7 @@ multiprocess_steps:
         - households
         - persons
   - name: mp_summarize
-    begin: write_data_dictionary
+    begin: write_tables
 
 output_tables:
   h5_store: False
