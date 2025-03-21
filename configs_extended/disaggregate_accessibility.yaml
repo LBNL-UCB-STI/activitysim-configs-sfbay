@@ -2,7 +2,7 @@
 # can be whole integer value or a sample rate (percent of zones)
 # zero or missing defaults to full sample!
 DESTINATION_SAMPLE_SIZE: 0.5
-ORIGIN_SAMPLE_SIZE: 5000
+ORIGIN_SAMPLE_SIZE: 1000
 
 # select origin zones weighted by population (or another landuse variable)
 ORIGIN_WEIGHTING_COLUMN: TOTPOP
@@ -31,6 +31,8 @@ CREATE_TABLES:
   PROTO_HOUSEHOLDS: proto_households_template.csv
   PROTO_PERSONS: proto_persons_template.csv
   PROTO_TOURS: proto_tours_template.csv
+# CREATE_TABLES: proto_persons_template.yaml
+  
 
 ##Note: parameters in ALL CAPS below are required by the program for synthesis
 # CREATE_TABLES:
@@ -129,6 +131,10 @@ MERGE_ON:
     - home_zone_id
     - auto_ownership
     - income_segment
+  method: 
+    - soft
+NEAREST_METHOD: soft
+
 
 # Include any annotations for persons, households, land_use, or tours.
 # The purpose of a separate annotation setup is that annotation expressions for the main model

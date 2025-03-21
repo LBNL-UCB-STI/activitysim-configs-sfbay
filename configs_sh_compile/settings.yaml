@@ -1,6 +1,8 @@
 
 inherit_settings: True
-sharrow: test
+sharrow: true
 chunk_training_mode: disabled
 recode_pipeline_columns: true
-households_sample_size: 1000
+households_sample_size: 2000
+num_processes: 1
+multiprocess: false

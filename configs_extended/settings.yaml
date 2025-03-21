@@ -96,12 +96,14 @@ recode_pipeline_columns: True
 
 # input skims
 skims_file: skims.omx
+sharrow: True
 
 # input valid geometries
 beam_geometries: clipped_tazs.csv
 
+
 # number of households to simulate
-households_sample_size:  250000
+households_sample_size:  275000
 
 # raise error if any sub-process fails without waiting for others to complete
 fail_fast: True
@@ -171,7 +173,7 @@ keep_mem_logs: True
 # multiprocessing controls
 multiprocess: True
 chunk_size: 200_000_000_000
-num_processes: 5
+num_processes: 55
 stagger: 0
 
 # trace household id; comment out or leave empty for no trace
@@ -202,7 +204,6 @@ checkpoints: True
 
 models:
   ### mp_initialize step
-  - input_checker
   ## Disaggregate Accessibility steps
   - initialize_proto_population # Separate step so proto tables can be split for multiprocess.
   - compute_disaggregate_accessibility
@@ -243,7 +244,7 @@ models:
 
 multiprocess_steps:
   - name: mp_initialize
-    begin: initialize_landuse
+    begin: initialize_proto_population
   - name: mp_households
     begin: school_location
     slice:
