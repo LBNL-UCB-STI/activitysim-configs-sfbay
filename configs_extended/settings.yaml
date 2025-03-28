@@ -34,6 +34,7 @@ input_table_list:
     recode_columns:
       home_zone_id: land_use.zone_id
     keep_columns:
+      - block_id
       - home_zone_id
       - income
       - hhsize
