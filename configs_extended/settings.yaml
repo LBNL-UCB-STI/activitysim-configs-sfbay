@@ -15,7 +15,7 @@
 #
 
 inherit_settings: True
-cleanup_pipeline_after_run: True
+cleanup_pipeline_after_run: False
 
 # input tables 
 input_table_list:
@@ -104,7 +104,7 @@ beam_geometries: clipped_tazs.csv
 
 
 # number of households to simulate
-households_sample_size:  275000
+households_sample_size:  5000
 
 # raise error if any sub-process fails without waiting for others to complete
 fail_fast: True
@@ -172,9 +172,9 @@ keep_mem_logs: True
 ##############
 
 # multiprocessing controls
-multiprocess: True
+multiprocess: False
 chunk_size: 200_000_000_000
-num_processes: 55
+num_processes: 1
 stagger: 0
 
 # trace household id; comment out or leave empty for no trace
