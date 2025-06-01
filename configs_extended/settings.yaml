@@ -15,7 +15,8 @@
 #
 
 inherit_settings: True
-cleanup_pipeline_after_run: False
+cleanup_pipeline_after_run: True
+delete_pipeline_files_during_cleanup: False
 
 # input tables 
 input_table_list:
@@ -104,7 +105,7 @@ beam_geometries: clipped_tazs.csv
 
 
 # number of households to simulate
-households_sample_size:  5000
+households_sample_size:  15000
 
 # raise error if any sub-process fails without waiting for others to complete
 fail_fast: True
