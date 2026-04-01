@@ -61,6 +61,12 @@ input_table_list:
       - ptype
       - home_x
       - home_y
+      - workplace_zone_id
+      - workplace_location_logsum
+      - school_zone_id
+      - school_location_logsum
+      - needs_workplace_reassignment
+      - needs_school_reassignment
   - tablename: land_use
     filename: land_use.csv
     index_col: zone_id
@@ -122,7 +128,7 @@ mem_tick: 0
 # turn shadow_pricing on and off for all models (e.g. school and work)
 # shadow pricing is deprecated for less than full samples
 # see shadow_pricing.yaml for additional settings
-use_shadow_pricing: False
+use_shadow_pricing: True
 
 # turn writing of sample_tables on and off for all models
 # (if True, tables will be written if DEST_CHOICE_SAMPLE_TABLE_NAME is specified in individual model settings)

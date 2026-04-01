@@ -70,6 +70,12 @@ input_table_list:
       - ptype
       - home_x
       - home_y
+      - workplace_zone_id
+      - workplace_location_logsum
+      - school_zone_id
+      - school_location_logsum
+      - needs_workplace_reassignment
+      - needs_school_reassignment
   - tablename: land_use
     filename: land_use.csv
     index_col: zone_id
