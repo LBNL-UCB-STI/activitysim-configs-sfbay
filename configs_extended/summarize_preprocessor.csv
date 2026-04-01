@@ -34,6 +34,9 @@ Description,Target,Expression
 ,_hov2toll_dist,trip_odt_skims['HOV2TOLL_DIST']
 ,_hov3toll_dist,trip_odt_skims['HOV3TOLL_DIST']
 
+# Straight-line distance (regardless of mode)
+,dist_straight,trip_od_skims['DIST']
+
 # Transit auto access/eggress distance (miles x 100)
 ,_drv_com_wlk_ddist,trip_odt_skims['DRV_COM_WLK_DDIST']/100
 ,_drv_exp_wlk_ddist,trip_odt_skims['DRV_EXP_WLK_DDIST']/100

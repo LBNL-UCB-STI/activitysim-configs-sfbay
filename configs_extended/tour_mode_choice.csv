@@ -83,7 +83,7 @@ util_BIKE_Destination_zone_densityIndex,BIKE - Destination zone densityIndex,@de
 util_BIKE_Topology,BIKE - Topology,@coef_topology_bike_multiplier * df.dest_topology,,,,,,,,coef_ivt,,,,,,,,,,,,,
 #,Walk to Local,,,,,,,,,,,,,,,,,,,,,,
 util_WALK_LOC_Unavailable,WALK_LOC - Unavailable,walk_local_available == False,,,,,,,,,-999,,,,,,,,,,,,
-util_WALK_LOC_In_vehicle_time,WALK_LOC - In-vehicle time,@(odt_skims['WLK_LOC_WLK_TOTIVT']/TRANSIT_SCALE_FACTOR + dot_skims['WLK_LOC_WLK_TOTIVT']/TRANSIT_SCALE_FACTOR),,,,,,,,,coef_ivt,,,,,,,,,,,,
+util_WALK_LOC_In_vehicle_time,WALK_LOC - In-vehicle time,@(odt_skims['WLK_LOC_WLK_TOTIVT']/TRANSIT_SCALE_FACTOR + dot_skims['WLK_LOC_WLK_TOTIVT']/TRANSIT_SCALE_FACTOR+walk_local_penalty),,,,,,,,,coef_ivt,,,,,,,,,,,,
 util_WALK_LOC_Short_iwait_time,WALK_LOC - Short iwait time,@short_i_wait_multiplier * ((odt_skims['WLK_LOC_WLK_IWAIT']/TRANSIT_SCALE_FACTOR).clip(upper=waitThresh) + (dot_skims['WLK_LOC_WLK_IWAIT']/TRANSIT_SCALE_FACTOR).clip(upper=waitThresh)),,,,,,,,,coef_ivt,,,,,,,,,,,,
 util_WALK_LOC_Long_iwait_time,WALK_LOC - Long iwait time,@long_i_wait_multiplier * ((odt_skims['WLK_LOC_WLK_IWAIT']/TRANSIT_SCALE_FACTOR-waitThresh).clip(0) + (dot_skims['WLK_LOC_WLK_IWAIT']/TRANSIT_SCALE_FACTOR-waitThresh).clip(0)),,,,,,,,,coef_ivt,,,,,,,,,,,,
 util_WALK_LOC_transfer_wait_time,WALK_LOC - transfer wait time,@xwait_multiplier * (odt_skims['WLK_LOC_WLK_XWAIT']/TRANSIT_SCALE_FACTOR + dot_skims['WLK_LOC_WLK_XWAIT']/TRANSIT_SCALE_FACTOR),,,,,,,,,coef_ivt,,,,,,,,,,,,

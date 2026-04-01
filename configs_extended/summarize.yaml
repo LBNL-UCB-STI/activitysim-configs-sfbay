@@ -79,6 +79,33 @@ trips_merged:
       interval: 5
       label_format: "{left:,.2f} - {right:,.2f}" # 'left' and 'right' are bin boundaries
 
+    - column: dist_straight
+      label: distance_quintile
+      type: quantiles
+      bins: 5
+      # Use {rank} to label bins as 1-5
+      label_format: '{rank}'
+
+    - column: dist_straight
+      label: distance_bin
+      type: manual_breaks
+      bin_breaks:
+        - 0
+        - 0.5
+        - 1.0
+        - 2.0
+        - 5.0
+        - 10.0
+        - 200.0
+      bin_labels:
+        - < 0.5 mi
+        - 0.5 - 1 mi
+        - 1 - 2 mi
+        - 2 - 5 mi
+        - 5 - 10 mi
+        - 10+ mi
+
+
 
   AGGREGATE:
     - column: trip_mode

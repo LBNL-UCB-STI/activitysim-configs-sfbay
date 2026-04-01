@@ -52,6 +52,17 @@ Description,Output,Expression
 # Count trips by major mode
 #,trips_by_major_mode_count,trips_merged.groupby('major_trip_mode')[['number_of_participants']].sum().T
 
+# Count trips by major mode and distance quintile
+# (distance_quintile is calculated by a BIN expression in summarize.yaml)
+# (major_trip_mode is calculated by an AGGREGATE expression in summarize.yaml)
+,trips_by_mode_and_distance_quintile,"trips_merged.groupby(['distance_quintile', 'major_trip_mode']).size().unstack(-1).reset_index()"
+
+# Count trips by major mode and distance bin
+# (distance_bin is calculated by a BIN expression in summarize.yaml)
+# (major_trip_mode is calculated by an AGGREGATE expression in summarize.yaml)
+,trips_by_mode_and_distance_bin,"trips_merged.groupby(['distance_bin', 'major_trip_mode']).size().unstack(-1).reset_index()"
+
+
 # Count trips by income category and major mode
 ,_trips_with_income,"pd.merge(trips_merged, persons_merged['income_category'], left_on='person_id', right_index=True)"
 ,trip_by_income_category_major_mode,"_trips_with_income.groupby(['income_category', 'major_trip_mode']).size().unstack(-1).reset_index()"
