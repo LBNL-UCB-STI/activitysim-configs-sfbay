@@ -51,6 +51,9 @@ input_table_list:
     rename_columns:
       person_id: person_id
       member_id: PNUM
+    recode_columns:
+      workplace_zone_id: nonnegative | land_use.zone_id
+      school_zone_id: nonnegative | land_use.zone_id
     keep_columns:
       - household_id
       - age
