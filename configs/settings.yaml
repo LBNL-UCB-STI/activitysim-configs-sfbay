@@ -21,6 +21,8 @@ recode_pipeline_columns: true
 households_sample_size: 275000
 num_processes: 55
 multiprocess: true
+downcast_int: true
+downcast_float: true
 
 
 # inherit_settings: True
@@ -35,6 +37,14 @@ input_table_list:
   - tablename: households
     filename: households.csv
     index_col: household_id
+    dtypes:
+      household_id: int32
+      persons: int8
+      workers: int8
+      cars: int8
+      TAZ: int32
+      income: float32
+      HHT: int8
     rename_columns:
       household_id: household_id
       persons: hhsize
@@ -57,6 +67,17 @@ input_table_list:
   - tablename: persons
     filename: persons.csv
     index_col: person_id
+    dtypes:
+      person_id: int32
+      household_id: int32
+      member_id: int8
+      age: int8
+      sex: int8
+      pemploy: int8
+      pstudent: int8
+      ptype: int8
+      workplace_zone_id: int32
+      school_zone_id: int32
     rename_columns:
       person_id: person_id
       member_id: PNUM
@@ -82,6 +103,28 @@ input_table_list:
   - tablename: land_use
     filename: land_use.csv
     index_col: zone_id
+    dtypes:
+      TAZ: int32
+      COUNTY: int16
+      TOTHH: int32
+      TOTPOP: int32
+      TOTACRE: float32
+      TOTEMP: int32
+      AGE0519: int16
+      RETEMPN: float32
+      FPSEMPN: float32
+      HEREMPN: float32
+      OTHEMPN: float32
+      AGREMPN: float32
+      MWTEMPN: float32
+      PRKCST: float32
+      OPRKCST: float32
+      area_type: int8
+      HSENROLL: float32
+      COLLFTE: float32
+      COLLPTE: float32
+      TOPOLOGY: int8
+      TERMINAL: int8
     rename_columns:
       TAZ: zone_id  # person_id is the required index column
       COUNTY: county_id

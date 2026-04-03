@@ -2,7 +2,7 @@ Description,Target,Expression
 ,is_joint,(df.number_of_participants > 1)
 ,is_indiv,(df.number_of_participants == 1)
 ,is_atwork_subtour,~df.parent_tour_id.isnull()
-,ivot,1.0 / df.value_of_time
+,ivot,(1.0 / df.value_of_time).astype(np.float32)
 #,,
 #atwork subtours,,
 #FIXME tripModeChoice uec wrongly conflates these with tour_mode_is_bike?,,
@@ -10,7 +10,7 @@ Description,Target,Expression
 ,work_tour_is_SOV,"parent_tour_mode.isin(['DRIVEALONEFREE','DRIVEALONEPAY'])"
 ,work_tour_is_bike,parent_tour_mode=='BIKE'
 #,,
-,i_tour_mode,df.tour_mode.map(I_MODE_MAP)
+,i_tour_mode,df.tour_mode.map(I_MODE_MAP).astype(np.int8)
 ,tour_mode_is_SOV,i_tour_mode.isin(I_SOV_MODES)
 ,tour_mode_is_SR2,i_tour_mode.isin(I_SR2_MODES)
 ,tour_mode_is_SR3P,i_tour_mode.isin(I_SR3P_MODES)
@@ -26,7 +26,7 @@ Description,Target,Expression
 ,last_trip,df.trip_num == df.trip_count
 origin terminal time not counted at home,_origin_terminal_time,"np.where(df.outbound & first_trip, 0, reindex(land_use.TERMINAL, df[ORIGIN]))"
 dest terminal time not counted at home,_dest_terminal_time,"np.where(inbound & last_trip, 0, reindex(land_use.TERMINAL, df[DESTINATION]))"
-,total_terminal_time,_origin_terminal_time + _dest_terminal_time
+,total_terminal_time,(_origin_terminal_time + _dest_terminal_time).astype(np.int8)
 #,,
 ,free_parking_available,(df.tour_type == 'work') & df.free_parking_at_work
 ,dest_hourly_peak_parking_cost,"reindex(land_use.PRKCST, df[DESTINATION])"
@@ -35,17 +35,17 @@ dest terminal time not counted at home,_dest_terminal_time,"np.where(inbound & l
 ,dest_duration,"np.where(last_trip, np.where(inbound, df.duration * ~free_parking_available, 0), 1)"
 ,origin_parking_cost,origin_duration*origin_hourly_peak_parking_cost
 ,dest_parking_cost,dest_duration*dest_hourly_peak_parking_cost
-,total_parking_cost,(origin_parking_cost + dest_parking_cost) / 2.0
-,trip_topology,"np.where(df.outbound, reindex(land_use.TOPOLOGY, df[DESTINATION]), reindex(land_use.TOPOLOGY, df[ORIGIN]))"
-,density_index,"np.where(df.outbound, reindex(land_use.density_index, df[DESTINATION]), reindex(land_use.density_index, df[ORIGIN]))"
-,origin_density_index,"np.where(df.outbound, reindex(land_use.density_index, df[ORIGIN]), reindex(land_use.density_index, df[DESTINATION]))"
+,total_parking_cost,(((origin_parking_cost + dest_parking_cost) / 2.0)).astype(np.float32)
+,trip_topology,"np.where(df.outbound, reindex(land_use.TOPOLOGY, df[DESTINATION]), reindex(land_use.TOPOLOGY, df[ORIGIN])).astype(np.int8)"
+,density_index,"np.where(df.outbound, reindex(land_use.density_index, df[DESTINATION]), reindex(land_use.density_index, df[ORIGIN])).astype(np.float32)"
+,origin_density_index,"np.where(df.outbound, reindex(land_use.density_index, df[ORIGIN]), reindex(land_use.density_index, df[DESTINATION])).astype(np.float32)"
 # FIXME no transit subzones so all zones short walk to transit,,
 ,_walk_transit_origin,True
 ,_walk_transit_destination,True
 ,walk_transit_available,_walk_transit_origin & _walk_transit_destination
 ,drive_transit_available,"np.where(df.outbound, _walk_transit_destination, _walk_transit_origin) & (df.auto_ownership > 0)"
-,origin_walk_time,shortWalk*60/walkSpeed
-,destination_walk_time,shortWalk*60/walkSpeed
+,origin_walk_time,np.float32(shortWalk*60/walkSpeed)
+,destination_walk_time,np.float32(shortWalk*60/walkSpeed)
 # RIDEHAIL,, Could just define this in trip_mode_choice.csv but leaving this for now so that we can factor in rejected trips if needed
 ,origTaxiWaitTime,"odt_skims['RH_SOLO_WAIT'] * (1.0 - odt_skims['RH_SOLO_REJECTIONPROB']) + TNC_missed_trip_penalty * odt_skims['RH_SOLO_REJECTIONPROB']"
 ,origSingleTNCWaitTime,"odt_skims['RH_SOLO_WAIT'] * (1.0 - odt_skims['RH_SOLO_REJECTIONPROB']) + TNC_missed_trip_penalty * odt_skims['RH_SOLO_REJECTIONPROB']"
