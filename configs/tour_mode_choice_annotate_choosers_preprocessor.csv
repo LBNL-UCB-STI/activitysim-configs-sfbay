@@ -1,7 +1,7 @@
 Description,Target,Expression
 #,,
 local,_DF_IS_TOUR,'tour_type' in df.columns
-,number_of_participants,(df.number_of_participants if _DF_IS_TOUR else 1).astype(np.int8)
+,number_of_participants,df.number_of_participants.astype(np.int8) if _DF_IS_TOUR else np.int8(1)
 ,is_joint,(df.tour_category=='joint') if _DF_IS_TOUR else False
 #,,
  local,_HAVE_PARENT_TOURS,'parent_tour_id' in df.columns
